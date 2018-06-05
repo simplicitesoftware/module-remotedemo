@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simplicite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.simplicite.fr/base" xsi:schemaLocation="http://www.simplicite.fr/base https://www.simplicite.io/resources/schemas/base.xsd">
+<object>
+	<name>Module</name>
+	<action>upsert</action>
+	<data>
+		<mdl_name>RemoteDemo</mdl_name>
+		<mdl_version>3.1</mdl_version>
+		<mdl_url><![CDATA[https://www.simplicite.io/resources/modules/remotedemo-app-3.1.xml]]></mdl_url>
+		<mdl_lastupd>2017-10-13 23:49:02</mdl_lastupd>
+		<mdl_comment/>
+	</data>
+</object>
+<object>
+	<name>SystemParam</name>
+	<action>upsert</action>
+	<data>
+		<sys_code>REMOTESIMPLICITE_CREDENTIALS</sys_code>
+		<sys_value><![CDATA[{
+	"url": "https://demo.simplicite.cloud",
+	"username": "designer",
+	"password": "S1mplicite_",
+	"encoding": "UTF-8"
+}]]></sys_value>
+		<sys_type>PRV</sys_type>
+		<sys_desc/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>View</name>
+	<action>upsert</action>
+	<data>
+		<viw_name>RemoteDemoHome</viw_name>
+		<viw_template><![CDATA[[AREA:1]]]></viw_template>
+		<viw_ui/>
+		<viw_order>200</viw_order>
+		<viw_icon>simplicite</viw_icon>
+		<viw_disp_id.dis_code/>
+		<viw_scope/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+		<viw_theme_id.thm_name/>
+	</data>
+</object>
+<object>
+	<name>Group</name>
+	<action>upsert</action>
+	<data>
+		<grp_name>REMOTEDEMO_USER</grp_name>
+		<grp_comment/>
+		<grp_type>G</grp_type>
+		<grp_parent_id.grp_name/>
+		<grp_home_id.viw_name>RemoteDemoHome</grp_home_id.viw_name>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>Profile</name>
+	<action>upsert</action>
+	<data>
+		<prf_profile_id.grp_name>REMOTEDEMO_USER</prf_profile_id.grp_name>
+		<prf_group_id.grp_name>CHAT_USER</prf_group_id.grp_name>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<prf_profile_id.grp_name>REMOTEDEMO_USER</prf_profile_id.grp_name>
+		<prf_group_id.grp_name>SOCIAL_USER</prf_group_id.grp_name>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<prf_profile_id.grp_name>REMOTEDEMO_USER</prf_profile_id.grp_name>
+		<prf_group_id.grp_name>USER_PASSWORD</prf_group_id.grp_name>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<prf_profile_id.grp_name>REMOTEDEMO_USER</prf_profile_id.grp_name>
+		<prf_group_id.grp_name>WEB_USER</prf_group_id.grp_name>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>Responsability</name>
+	<action>upsert</action>
+	<data>
+		<rsp_login_id.usr_login>designer</rsp_login_id.usr_login>
+		<rsp_group_id.grp_name>REMOTEDEMO_USER</rsp_group_id.grp_name>
+		<rsp_start_dt>2015-02-10</rsp_start_dt>
+		<rsp_end_dt/>
+		<rsp_activ>1</rsp_activ>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>Domain</name>
+	<action>upsert</action>
+	<data>
+		<obd_name>RemoteDemoDomain</obd_name>
+		<obd_comment/>
+		<obd_type>D</obd_type>
+		<obd_view_id.viw_name>RemoteDemoHome</obd_view_id.viw_name>
+		<obd_nohome>0</obd_nohome>
+		<obd_icon>simplicite</obd_icon>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>ObjectInternal</name>
+	<action>upsert</action>
+	<data>
+		<obo_name>RemoteDemoProduct</obo_name>
+		<obo_dbtable>service-simplicite</obo_dbtable>
+		<obo_class/>
+		<obo_script_id/>
+		<obo_usets>1</obo_usets>
+		<obo_nosearch>0</obo_nosearch>
+		<obo_comment/>
+		<obo_type>O</obo_type>
+		<obo_searchspec><![CDATA[{
+	"name": "DemoProduct",
+	"credentials": "REMOTESIMPLICITE_CREDENTIALS"
+}]]></obo_searchspec>
+		<obo_delspec/>
+		<obo_exportorder/>
+		<obo_distinct>0</obo_distinct>
+		<obo_indexable>0</obo_indexable>
+		<obo_groupby>0</obo_groupby>
+		<obo_dfltref/>
+		<obo_template_id.tpl_name>Base</obo_template_id.tpl_name>
+		<obo_cache>D</obo_cache>
+		<obo_copy>1</obo_copy>
+		<obo_export>1</obo_export>
+		<obo_pagine>1</obo_pagine>
+		<obo_srh_predef>1</obo_srh_predef>
+		<obo_selrow>1</obo_selrow>
+		<obo_updall>1</obo_updall>
+		<obo_delall>1</obo_delall>
+		<obo_listsearch>1</obo_listsearch>
+		<obo_list_edit>N;L;E</obo_list_edit>
+		<obo_useform>1</obo_useform>
+		<obo_title/>
+		<obo_icon/>
+		<obo_refcount>0</obo_refcount>
+		<obo_tree>0</obo_tree>
+		<obo_viewmode>T</obo_viewmode>
+		<obo_historic>0</obo_historic>
+		<obo_printable>1</obo_printable>
+		<obo_followlink>1</obo_followlink>
+		<obo_mergeable>0</obo_mergeable>
+		<obo_social>1</obo_social>
+		<obo_rowid_id.fld_name/>
+		<obo_extend_id.obj_name/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+		<obo_btn_reload>P</obo_btn_reload>
+		<obo_btn_prefs>P</obo_btn_prefs>
+		<obo_btn_del>P</obo_btn_del>
+		<obo_btn_copy>P</obo_btn_copy>
+		<obo_btn_export>P</obo_btn_export>
+		<obo_btn_listadd>1</obo_btn_listadd>
+		<obo_btn_listedit>1</obo_btn_listedit>
+		<obo_btn_updall>P</obo_btn_updall>
+		<obo_btn_delall>P</obo_btn_delall>
+		<obo_btn_merge>P</obo_btn_merge>
+		<obo_btn_save>1</obo_btn_save>
+		<obo_btn_saveclose>1</obo_btn_saveclose>
+		<obo_btn_close>1</obo_btn_close>
+	</data>
+	<data>
+		<obo_name>RemoteDemoSupplier</obo_name>
+		<obo_dbtable>service-simplicite</obo_dbtable>
+		<obo_class/>
+		<obo_script_id/>
+		<obo_usets>1</obo_usets>
+		<obo_nosearch>0</obo_nosearch>
+		<obo_comment/>
+		<obo_type>O</obo_type>
+		<obo_searchspec><![CDATA[{
+	"name": "DemoSupplier",
+	"credentials": "REMOTESIMPLICITE_CREDENTIALS"
+}]]></obo_searchspec>
+		<obo_delspec/>
+		<obo_exportorder/>
+		<obo_distinct>0</obo_distinct>
+		<obo_indexable>0</obo_indexable>
+		<obo_groupby>0</obo_groupby>
+		<obo_dfltref/>
+		<obo_template_id.tpl_name>Base</obo_template_id.tpl_name>
+		<obo_cache>D</obo_cache>
+		<obo_copy>1</obo_copy>
+		<obo_export>1</obo_export>
+		<obo_pagine>1</obo_pagine>
+		<obo_srh_predef>1</obo_srh_predef>
+		<obo_selrow>1</obo_selrow>
+		<obo_updall>1</obo_updall>
+		<obo_delall>1</obo_delall>
+		<obo_listsearch>1</obo_listsearch>
+		<obo_list_edit>N;L;E</obo_list_edit>
+		<obo_useform>1</obo_useform>
+		<obo_title/>
+		<obo_icon/>
+		<obo_refcount>0</obo_refcount>
+		<obo_tree>0</obo_tree>
+		<obo_viewmode>T</obo_viewmode>
+		<obo_historic>0</obo_historic>
+		<obo_printable>1</obo_printable>
+		<obo_followlink>1</obo_followlink>
+		<obo_mergeable>0</obo_mergeable>
+		<obo_social>1</obo_social>
+		<obo_rowid_id.fld_name/>
+		<obo_extend_id.obj_name/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+		<obo_btn_reload>P</obo_btn_reload>
+		<obo_btn_prefs>P</obo_btn_prefs>
+		<obo_btn_del>P</obo_btn_del>
+		<obo_btn_copy>P</obo_btn_copy>
+		<obo_btn_export>P</obo_btn_export>
+		<obo_btn_listadd>1</obo_btn_listadd>
+		<obo_btn_listedit>1</obo_btn_listedit>
+		<obo_btn_updall>P</obo_btn_updall>
+		<obo_btn_delall>P</obo_btn_delall>
+		<obo_btn_merge>P</obo_btn_merge>
+		<obo_btn_save>1</obo_btn_save>
+		<obo_btn_saveclose>1</obo_btn_saveclose>
+		<obo_btn_close>1</obo_btn_close>
+	</data>
+</object>
+<object>
+	<name>Function</name>
+	<action>upsert</action>
+	<data>
+		<fct_name>RemoteDemoDomain-D</fct_name>
+		<fct_object_id.obj_name>RemoteDemoDomain</fct_object_id.obj_name>
+		<fct_function>L</fct_function>
+		<fct_action_id.act_name/>
+		<fct_view_id.viw_name/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<fct_name>RemoteDemoProduct-R</fct_name>
+		<fct_object_id.obj_name>RemoteDemoProduct</fct_object_id.obj_name>
+		<fct_function>L</fct_function>
+		<fct_action_id.act_name/>
+		<fct_view_id.viw_name/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<fct_name>RemoteDemoSupplier-R</fct_name>
+		<fct_object_id.obj_name>RemoteDemoSupplier</fct_object_id.obj_name>
+		<fct_function>L</fct_function>
+		<fct_action_id.act_name/>
+		<fct_view_id.viw_name/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>Grant</name>
+	<action>upsert</action>
+	<data>
+		<grt_group_id.grp_name>REMOTEDEMO_USER</grt_group_id.grp_name>
+		<grt_function_id.fct_name>RemoteDemoDomain-D</grt_function_id.fct_name>
+		<fct_object_id.obj_type>D</fct_object_id.obj_type>
+		<fct_object_id.obj_name>RemoteDemoDomain</fct_object_id.obj_name>
+		<fct_action_id.act_name/>
+		<grt_function_id.fct_function>L</grt_function_id.fct_function>
+		<grt_activ>1</grt_activ>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<grt_group_id.grp_name>REMOTEDEMO_USER</grt_group_id.grp_name>
+		<grt_function_id.fct_name>RemoteDemoProduct-R</grt_function_id.fct_name>
+		<fct_object_id.obj_type>O</fct_object_id.obj_type>
+		<fct_object_id.obj_name>RemoteDemoProduct</fct_object_id.obj_name>
+		<fct_action_id.act_name/>
+		<grt_function_id.fct_function>L</grt_function_id.fct_function>
+		<grt_activ>1</grt_activ>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<grt_group_id.grp_name>REMOTEDEMO_USER</grt_group_id.grp_name>
+		<grt_function_id.fct_name>RemoteDemoSupplier-R</grt_function_id.fct_name>
+		<fct_object_id.obj_type>O</fct_object_id.obj_type>
+		<fct_object_id.obj_name>RemoteDemoSupplier</fct_object_id.obj_name>
+		<fct_action_id.act_name/>
+		<grt_function_id.fct_function>L</grt_function_id.fct_function>
+		<grt_activ>1</grt_activ>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>Map</name>
+	<action>upsert</action>
+	<data>
+		<map_domain_id.obd_name>RemoteDemoDomain</map_domain_id.obd_name>
+		<map_object_id.obj_name>RemoteDemoSupplier</map_object_id.obj_name>
+		<map_process_id.pcs_name/>
+		<map_order>73000</map_order>
+		<map_ext/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<map_domain_id.obd_name>RemoteDemoDomain</map_domain_id.obd_name>
+		<map_object_id.obj_name>RemoteDemoProduct</map_object_id.obj_name>
+		<map_process_id.pcs_name/>
+		<map_order>73010</map_order>
+		<map_ext/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>ViewItem</name>
+	<action>upsert</action>
+	<data>
+		<vwi_view_id.viw_name>RemoteDemoHome</vwi_view_id.viw_name>
+		<vwi_position>1</vwi_position>
+		<vwi_type>I</vwi_type>
+		<vwi_title>0</vwi_title>
+		<vwi_research_id.rch_name/>
+		<rch_object_id.obo_name/>
+		<rch_user_id.usr_login/>
+		<vwi_search_spec/>
+		<vwi_lov_code/>
+		<vwi_show/>
+		<vwi_url/>
+		<vwi_image><![CDATA[../PUB_resource.jsp?code=HOMEPAGE]]></vwi_image>
+		<vwi_graph_id.gph_name/>
+		<vwi_crosstab_id.ctb_name/>
+		<vwi_printtmpl_id.prt_name/>
+		<vwi_printtmpl_id.prt_lang/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>ViewGroup</name>
+	<action>upsert</action>
+	<data>
+		<vig_view_id.viw_name>RemoteDemoHome</vig_view_id.viw_name>
+		<vig_group_id.grp_name>REMOTEDEMO_USER</vig_group_id.grp_name>
+		<vig_group_id.grp_comment/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>ObjectCtxHelp</name>
+	<action>upsert</action>
+	<data>
+		<och_object_id.obo_name>RemoteDemoProduct</och_object_id.obo_name>
+		<och_context>S;L;C;U;D;R;X;M;P;A</och_context>
+		<och_lang>ENU</och_lang>
+		<och_help><![CDATA[These object is hosted on a <b>remote</b> Simplicit&eacute;&reg; instance]]></och_help>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<och_object_id.obo_name>RemoteDemoProduct</och_object_id.obo_name>
+		<och_context>S;L;C;U;D;R;X;M;P;A</och_context>
+		<och_lang>FRA</och_lang>
+		<och_help><![CDATA[Cet objet est hébergé sur une instance Simplicit&eacute;&reg; <b>distante</b>]]></och_help>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<och_object_id.obo_name>RemoteDemoSupplier</och_object_id.obo_name>
+		<och_context>S;L;C;U;D;R;X;M;P;A</och_context>
+		<och_lang>ENU</och_lang>
+		<och_help><![CDATA[These object is hosted on a <b>remote</b> Simplicit&eacute;&reg; instance]]></och_help>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<och_object_id.obo_name>RemoteDemoSupplier</och_object_id.obo_name>
+		<och_context>S;L;C;U;D;R;X;M;P;A</och_context>
+		<och_lang>FRA</och_lang>
+		<och_help><![CDATA[Cet objet est hébergé sur une instance Simplicit&eacute;&reg; <b>distante</b>]]></och_help>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>TranslateDomain</name>
+	<action>upsert</action>
+	<data>
+		<tsl_typeObject>O</tsl_typeObject>
+		<tsl_id.obd_name>RemoteDemoDomain</tsl_id.obd_name>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Remote demo</tsl_value>
+		<tsl_help/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_typeObject>O</tsl_typeObject>
+		<tsl_id.obd_name>RemoteDemoDomain</tsl_id.obd_name>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Démo distante</tsl_value>
+		<tsl_help/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>TranslateObject</name>
+	<action>upsert</action>
+	<data>
+		<tsl_typeObject>O</tsl_typeObject>
+		<tsl_id.obo_name>RemoteDemoProduct</tsl_id.obo_name>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Remote product</tsl_value>
+		<tsl_help/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_typeObject>O</tsl_typeObject>
+		<tsl_id.obo_name>RemoteDemoSupplier</tsl_id.obo_name>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Remote supplier</tsl_value>
+		<tsl_help><![CDATA[These object is hosted on a <b>remote</b> Simplicit&eacute;&reg; instance]]></tsl_help>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_typeObject>O</tsl_typeObject>
+		<tsl_id.obo_name>RemoteDemoProduct</tsl_id.obo_name>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Produit distant</tsl_value>
+		<tsl_help/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_typeObject>O</tsl_typeObject>
+		<tsl_id.obo_name>RemoteDemoSupplier</tsl_id.obo_name>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Fournisseur distant</tsl_value>
+		<tsl_help/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>TranslateView</name>
+	<action>upsert</action>
+	<data>
+		<tsl_typeView>V</tsl_typeView>
+		<tsl_id.viw_name>RemoteDemoHome</tsl_id.viw_name>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Remote Simplicité®</tsl_value>
+		<tsl_help/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_typeView>V</tsl_typeView>
+		<tsl_id.viw_name>RemoteDemoHome</tsl_id.viw_name>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Simplicité® distant</tsl_value>
+		<tsl_help/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+</object>
+</simplicite>
