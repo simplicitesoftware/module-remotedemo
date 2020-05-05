@@ -1,0 +1,829 @@
+#  ___ _            _ _    _ _    __
+# / __(_)_ __  _ __| (_)__(_) |_ /_/
+# \__ \ | '  \| '_ \ | / _| |  _/ -_)
+# |___/_|_|_|_| .__/_|_\__|_|\__\___|
+#             |_| Module: RemoteDemo 4.0
+paths:
+  /login:
+    get:
+      summary: Login (obtain bearer token)
+      security:
+      - basicAuth: []
+      produces:
+      - text/plain
+      - application/json
+      operationId: login
+      responses:
+        '200':
+          description: Successful login
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+      parameters:
+      - in: query
+        name: _output
+        description: Optional output format
+        type: string
+        required: false
+        enum:
+        - json
+        - oauth2
+        - token
+      tags:
+      - session
+  /logout:
+    get:
+      summary: Logout (revoke bearer token)
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: logout
+      responses:
+        '200':
+          description: Successfull logout
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+      tags:
+      - session
+  /rest/RemoteDemoSupplier:
+    get:
+      summary: Search RemoteDemoSupplier business object records or get contextualized
+        metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-remotedemosupplier-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfRemoteDemoSupplier'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: demoSupCode
+        description: Search filter for Supplier unique code (e.g. `MYSUP`)
+        type: string
+        required: false
+      - in: query
+        name: demoSupName
+        description: Search filter for Supplier name
+        type: string
+        required: false
+      - in: query
+        name: demoSupDescription
+        description: Search filter for Supplier description
+        type: string
+        required: false
+      - in: query
+        name: demoSupPhone
+        description: Search filter for Supplier phone number
+        type: string
+        required: false
+      - in: query
+        name: demoSupFax
+        description: Search filter for Supplier fax number
+        type: string
+        required: false
+      - in: query
+        name: demoSupWebsite
+        description: Search filter for Supplier website URL
+        type: string
+        required: false
+      - in: query
+        name: demoSupEmail
+        description: Search filter for Supplier email address
+        type: string
+        required: false
+      - in: query
+        name: demoSupLogo
+        description: Search filter for Supplier logo
+        type: string
+        required: false
+      - in: query
+        name: demoSupUsrId
+        description: Search filter for User responsible of supplier
+        type: string
+        required: false
+      - in: query
+        name: demoSupUsrId__usr_login
+        description: Search filter for Login
+        type: string
+        required: false
+      - in: query
+        name: demoSupComments
+        description: Search filter for Comments on supplier
+        type: string
+        required: false
+      tags:
+      - RemoteDemoSupplier
+  /rest/RemoteDemoSupplier/{row_id}:
+    post:
+      summary: Create a new RemoteDemoSupplierbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-remotedemosupplier-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/RemoteDemoSupplier'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/RemoteDemoSupplier'
+        in: body
+        name: body
+      tags:
+      - RemoteDemoSupplier
+      consumes:
+      - application/json
+    get:
+      summary: Get a RemoteDemoSupplier business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-remotedemosupplier-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/RemoteDemoSupplier'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - RemoteDemoSupplier
+    delete:
+      summary: Delete a RemoteDemoSupplier business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-remotedemosupplier-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - RemoteDemoSupplier
+    put:
+      summary: Update a RemoteDemoSupplierbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-remotedemosupplier-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/RemoteDemoSupplier'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/RemoteDemoSupplier'
+        in: body
+        name: body
+      tags:
+      - RemoteDemoSupplier
+      consumes:
+      - application/json
+  /rest/RemoteDemoProduct:
+    get:
+      summary: Search RemoteDemoProduct business object records or get contextualized
+        metadata
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-remotedemoproduct-search
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/ArrayOfRemoteDemoProduct'
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: query
+        name: _metadata
+        description: Metadata?
+        type: boolean
+        required: false
+      - in: query
+        name: _count
+        description: Count?
+        type: boolean
+        required: false
+      - in: query
+        name: _doc
+        description: Documentation?
+        type: boolean
+        required: false
+      - in: query
+        name: demoPrdSupId
+        description: Search filter for Product supplier
+        type: string
+        required: false
+      - in: query
+        name: demoPrdSupId__demoSupCode
+        description: Search filter for Supplier unique code (e.g. `MYSUP`)
+        type: string
+        required: false
+      - in: query
+        name: demoPrdSupId__demoSupName
+        description: Search filter for Supplier name
+        type: string
+        required: false
+      - in: query
+        name: demoPrdSupId__demoSupUsrId
+        description: Search filter for User responsible of supplier
+        type: string
+        required: false
+      - in: query
+        name: demoPrdReference
+        description: Search filter for Product reference
+        type: string
+        required: false
+      - in: query
+        name: demoPrdName
+        description: Search filter for Product name
+        type: string
+        required: false
+      - in: query
+        name: demoPrdType
+        description: Search filter for Product type
+        type: string
+        required: false
+        enum:
+        - LAPTOP
+        - DESKTOP
+        - TABLET
+        - SMARTPHONE
+        - OTHER
+      - in: query
+        name: demoPrdDescription
+        description: Search filter for Product description
+        type: string
+        required: false
+      - in: query
+        name: demoPrdPicture
+        description: Search filter for Product picture
+        type: string
+        required: false
+      - in: query
+        name: demoPrdStock
+        description: Search filter for Current stock for product
+        type: integer
+        required: false
+      - in: query
+        name: demoPrdUnitPrice
+        description: Search filter for Unit price of product
+        type: number
+        required: false
+      - in: query
+        name: demoPrdAvailable
+        description: Search filter for Available product?
+        type: boolean
+        required: false
+      - in: query
+        name: demoPrdDocumentation
+        description: Search filter for Product documentation
+        type: string
+        required: false
+      - in: query
+        name: demoPrdBrochure
+        description: Search filter for Product brochure
+        type: string
+        required: false
+      - in: query
+        name: demoPrdOnlineDoc
+        description: Search filter for Online product documentation URL
+        type: string
+        required: false
+      - in: query
+        name: demoPrdComments
+        description: Search filter for Comments on product
+        type: string
+        required: false
+      tags:
+      - RemoteDemoProduct
+  /rest/RemoteDemoProduct/{row_id}:
+    post:
+      summary: Create a new RemoteDemoProductbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-remotedemoproduct-create
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/RemoteDemoProduct'
+          description: Success in creating a new business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/RemoteDemoProduct'
+        in: body
+        name: body
+      tags:
+      - RemoteDemoProduct
+      consumes:
+      - application/json
+    get:
+      summary: Get a RemoteDemoProduct business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-remotedemoproduct-get
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/RemoteDemoProduct'
+          description: Success in getting a single business object record
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - in: query
+        name: _inline_documents
+        description: Inline documents?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        type: boolean
+        required: false
+      - in: query
+        name: _inline_objects
+        description: Inline objects?
+        type: boolean
+        required: false
+      tags:
+      - RemoteDemoProduct
+    delete:
+      summary: Delete a RemoteDemoProduct business object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-remotedemoproduct-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      tags:
+      - RemoteDemoProduct
+    put:
+      summary: Update a RemoteDemoProductbusiness object record
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: obj-remotedemoproduct-update
+      responses:
+        '200':
+          schema:
+            $ref: '#/definitions/RemoteDemoProduct'
+          description: Success in updating a business object record
+        '400':
+          schema:
+            $ref: '#/definitions/Error400'
+          description: Bad request
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+        '500':
+          schema:
+            $ref: '#/definitions/Error500'
+          description: Internal server error
+        '404':
+          schema:
+            $ref: '#/definitions/Error404'
+          description: Not found
+      parameters:
+      - in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        type: string
+        required: true
+      - schema:
+          $ref: '#/definitions/RemoteDemoProduct'
+        in: body
+        name: body
+      tags:
+      - RemoteDemoProduct
+      consumes:
+      - application/json
+  /:
+    get:
+      summary: Get user session information
+      security:
+      - bearerAuth: []
+      produces:
+      - application/json
+      operationId: info
+      responses:
+        '200':
+          description: Success in getting user session information
+        '401':
+          schema:
+            $ref: '#/definitions/Error401'
+          description: Unauthorized
+      parameters:
+      - in: query
+        name: texts
+        description: Texts?
+        type: boolean
+        required: false
+      tags:
+      - session
+securityDefinitions:
+  basicAuth:
+    type: basic
+  bearerAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+definitions:
+  Error404:
+    type: object
+    properties:
+      error:
+        description: Error message
+        type: string
+      status:
+        description: Error status
+        type: integer
+        enum:
+        - 404
+  RemoteDemoProduct:
+    type: object
+    properties:
+      demoPrdType:
+        description: Product type
+        type: string
+        enum:
+        - LAPTOP
+        - DESKTOP
+        - TABLET
+        - SMARTPHONE
+        - OTHER
+      demoPrdSupId__demoSupCode:
+        description: Supplier unique code (e.g. `MYSUP`)
+        type: string
+      demoPrdAvailable:
+        description: Available product?
+        type: boolean
+      demoPrdDocumentation:
+        description: Product documentation
+        type: string
+      demoPrdOnlineDoc:
+        description: Online product documentation URL
+        type: string
+      demoPrdSupId:
+        description: Product supplier
+        type: string
+      demoPrdUnitPrice:
+        description: Unit price of product
+        type: number
+      demoPrdSupId__demoSupUsrId:
+        description: User responsible of supplier
+        type: string
+      demoPrdReference:
+        description: Product reference
+        type: string
+      demoPrdPicture:
+        description: Product picture
+        type: object
+      demoPrdBrochure:
+        description: Product brochure
+        type: object
+      demoPrdComments:
+        description: Comments on product
+        type: string
+      demoPrdDescription:
+        description: Product description
+        type: string
+      demoPrdStock:
+        description: Current stock for product
+        type: integer
+      row_id:
+        description: Unique technical row ID
+        type: string
+      demoPrdName:
+        description: Product name
+        type: string
+      demoPrdSupId__demoSupName:
+        description: Supplier name
+        type: string
+  ArrayOfRemoteDemoProduct:
+    type: array
+    items:
+      $ref: '#/definitions/RemoteDemoProduct'
+  ArrayOfRemoteDemoSupplier:
+    type: array
+    items:
+      $ref: '#/definitions/RemoteDemoSupplier'
+  ActionResult:
+    type: object
+    properties:
+      result:
+        description: Action result
+        type: string
+  RemoteDemoSupplier:
+    type: object
+    properties:
+      demoSupDescription:
+        description: Supplier description
+        type: string
+      demoSupPhone:
+        description: Supplier phone number
+        type: string
+      demoSupCode:
+        description: Supplier unique code (e.g. `MYSUP`)
+        type: string
+      demoSupName:
+        description: Supplier name
+        type: string
+      demoSupFax:
+        description: Supplier fax number
+        type: string
+      demoSupEmail:
+        description: Supplier email address
+        type: string
+      demoSupLogo:
+        description: Supplier logo
+        type: object
+      demoSupUsrId:
+        description: User responsible of supplier
+        type: string
+      row_id:
+        description: Unique technical row ID
+        type: string
+      demoSupWebsite:
+        description: Supplier website URL
+        type: string
+      demoSupUsrId__usr_login:
+        description: Login
+        type: string
+      demoSupComments:
+        description: Comments on supplier
+        type: string
+  TreeviewData:
+    type: object
+    properties:
+      item:
+        description: Object item with lists of linked objects' items
+        type: object
+  PublicationResult:
+    type: object
+    properties:
+      mime:
+        description: MIME type
+        type: string
+      content:
+        description: Content (plain text or base64 encoded)
+        type: string
+  Error400:
+    type: object
+    properties:
+      error:
+        description: Error message
+        type: string
+      status:
+        description: Error status
+        type: integer
+        enum:
+        - 400
+  Error401:
+    type: object
+    properties:
+      error:
+        description: Error message
+        type: string
+      status:
+        description: Error status
+        type: integer
+        enum:
+        - 401
+  Error500:
+    type: object
+    properties:
+      error:
+        description: Error message
+        type: string
+      status:
+        description: Error status
+        type: integer
+        enum:
+        - 500
+  Error403:
+    type: object
+    properties:
+      error:
+        description: Error message
+        type: string
+      status:
+        description: Error status
+        type: integer
+        enum:
+        - 403
+swagger: '2.0'
+info:
+  license:
+    name: Simplicite license
+    url: http://www.simplicitesoftware.com
+  contact:
+    name: Simplicite Software
+    url: http://www.simplicitesoftware.com
+    email: contact@simplicitesoftware.com
+  description: API for module RemoteDemo
+  title: RemoteDemo
+  version: '4.0'
+tags:
+- name: RemoteDemoProduct
+  description: Remote product
+- name: RemoteDemoSupplier
+  description: Remote supplier
