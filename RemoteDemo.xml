@@ -5,15 +5,14 @@
 	<action>upsert</action>
 	<data>
 		<mdl_name>RemoteDemo</mdl_name>
-		<mdl_version>4.0</mdl_version>
+		<mdl_version>5</mdl_version>
 		<mdl_prefix/>
 		<mdl_url><![CDATA[{
 	"type": "git",
 	"origin": {
 		"uri": "https://github.com/simplicitesoftware/module-remotedemo.git"
 	}
-}
-]]></mdl_url>
+}]]></mdl_url>
 		<mdl_lastupd>2020-01-16 14:21:54</mdl_lastupd>
 		<mdl_comment><![CDATA[[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=simplicite-modules-RemoteDemo&metric=alert_status)](https://sonarcloud.io/dashboard?id=simplicite-modules-RemoteDemo)
 
@@ -77,6 +76,7 @@ There is one system parameters to configure:
 		<viw_scope/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 		<viw_theme_id.thm_name/>
+		<viw_lang/>
 	</data>
 </object>
 <object>
@@ -200,6 +200,8 @@ There is one system parameters to configure:
 		<obo_btn_merge>P</obo_btn_merge>
 		<obo_btn_save>1</obo_btn_save>
 		<obo_btn_saveclose>1</obo_btn_saveclose>
+		<obo_btn_savenew>1</obo_btn_savenew>
+		<obo_btn_savecopy>1</obo_btn_savecopy>
 		<obo_btn_close>1</obo_btn_close>
 		<obo_tray>1</obo_tray>
 		<obo_dashboard>1</obo_dashboard>
@@ -268,6 +270,8 @@ There is one system parameters to configure:
 		<obo_btn_merge>P</obo_btn_merge>
 		<obo_btn_save>1</obo_btn_save>
 		<obo_btn_saveclose>1</obo_btn_saveclose>
+		<obo_btn_savenew>1</obo_btn_savenew>
+		<obo_btn_savecopy>1</obo_btn_savecopy>
 		<obo_btn_close>1</obo_btn_close>
 		<obo_tray>1</obo_tray>
 		<obo_dashboard>1</obo_dashboard>
