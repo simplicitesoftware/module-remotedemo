@@ -1,9 +1,9 @@
 {
-    "date": "2020-01-16 14:24:02",
+    "date": "2022-06-09 13:47:02",
     "name": "RemoteDemo",
     "format": "xml",
     "files": ["RemoteDemo.xml"],
-    "repository": {},
+    "repository": {"origin": {"uri": "https://github.com/simplicitesoftware/module-remotedemo.git"}},
     "version": "5",
-    "platform": "5.2.0-alpha"
+    "platform": "5.2.6"
 }

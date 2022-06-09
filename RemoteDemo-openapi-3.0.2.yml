@@ -46,6 +46,9 @@ components:
         demoPrdUnitPrice:
           description: Unit price of product
           type: number
+        Attrib:
+          description: Attrib
+          type: string
         demoPrdSupId__demoSupUsrId:
           description: User responsible of supplier
           type: string
@@ -80,6 +83,47 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/RemoteDemoProduct'
+    PublicationResult:
+      type: object
+      properties:
+        mime:
+          description: MIME type
+          type: string
+        content:
+          description: Content (plain text or base64 encoded)
+          type: string
+    PlaceData:
+      type: object
+      properties:
+        coord:
+          description: Geographical coordinates
+          type: string
+        address:
+          description: Address
+          type: string
+        row_id:
+          description: Row ID
+          type: string
+        label1:
+          description: 'Label #1'
+          type: string
+        label2:
+          description: 'Label #2'
+          type: string
+        label3:
+          description: 'Label #3'
+          type: string
+    PlaceMapData:
+      type: object
+      properties:
+        places:
+          description: Places
+          type: array
+          items:
+            $ref: '#/components/schemas/PlaceData'
+        name:
+          description: Name
+          type: string
     ArrayOfRemoteDemoSupplier:
       type: array
       items:
@@ -135,15 +179,6 @@ components:
         item:
           description: Object item with lists of linked objects' items
           type: object
-    PublicationResult:
-      type: object
-      properties:
-        mime:
-          description: MIME type
-          type: string
-        content:
-          description: Content (plain text or base64 encoded)
-          type: string
     Error400:
       type: object
       properties:
@@ -704,6 +739,12 @@ paths:
         in: query
         name: demoPrdComments
         description: Search filter for Comments on product
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: Attrib
+        description: Search filter for Attrib
         required: false
       tags:
       - RemoteDemoProduct

@@ -432,6 +432,11 @@ paths:
         description: Search filter for Comments on product
         type: string
         required: false
+      - in: query
+        name: Attrib
+        description: Search filter for Attrib
+        type: string
+        required: false
       tags:
       - RemoteDemoProduct
   /rest/RemoteDemoProduct/{row_id}:
@@ -668,6 +673,9 @@ definitions:
       demoPrdUnitPrice:
         description: Unit price of product
         type: number
+      Attrib:
+        description: Attrib
+        type: string
       demoPrdSupId__demoSupUsrId:
         description: User responsible of supplier
         type: string
@@ -702,6 +710,47 @@ definitions:
     type: array
     items:
       $ref: '#/definitions/RemoteDemoProduct'
+  PublicationResult:
+    type: object
+    properties:
+      mime:
+        description: MIME type
+        type: string
+      content:
+        description: Content (plain text or base64 encoded)
+        type: string
+  PlaceData:
+    type: object
+    properties:
+      coord:
+        description: Geographical coordinates
+        type: string
+      address:
+        description: Address
+        type: string
+      row_id:
+        description: Row ID
+        type: string
+      label1:
+        description: 'Label #1'
+        type: string
+      label2:
+        description: 'Label #2'
+        type: string
+      label3:
+        description: 'Label #3'
+        type: string
+  PlaceMapData:
+    type: object
+    properties:
+      places:
+        description: Places
+        type: array
+        items:
+          $ref: '#/definitions/PlaceData'
+      name:
+        description: Name
+        type: string
   ArrayOfRemoteDemoSupplier:
     type: array
     items:
@@ -757,15 +806,6 @@ definitions:
       item:
         description: Object item with lists of linked objects' items
         type: object
-  PublicationResult:
-    type: object
-    properties:
-      mime:
-        description: MIME type
-        type: string
-      content:
-        description: Content (plain text or base64 encoded)
-        type: string
   Error400:
     type: object
     properties:
