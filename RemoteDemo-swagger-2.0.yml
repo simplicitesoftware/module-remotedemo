@@ -414,6 +414,11 @@ paths:
         type: boolean
         required: false
       - in: query
+        name: demoCliCode
+        description: Search filter for Customer code
+        type: string
+        required: false
+      - in: query
         name: demoCliFirstname
         description: Search filter for Customer first name
         type: string
@@ -421,6 +426,84 @@ paths:
       - in: query
         name: demoCliLastname
         description: Search filter for Customer last name
+        type: string
+        required: false
+      - in: query
+        name: demoCliAddress1
+        description: Search filter for Customer address (line 1)
+        type: string
+        required: false
+      - in: query
+        name: demoCliAddress2
+        description: Search filter for Customer address (line 2)
+        type: string
+        required: false
+      - in: query
+        name: demoCliZipCode
+        description: Search filter for Customer postal code
+        type: string
+        required: false
+      - in: query
+        name: demoCliCity
+        description: Search filter for Customer city
+        type: string
+        required: false
+      - in: query
+        name: demoCliCountry
+        description: Search filter for Customer country
+        type: string
+        required: false
+        enum:
+        - FR
+        - UK
+        - SP
+      - in: query
+        name: demoCliCoords
+        description: Search filter for Customer geoccordinates
+        type: string
+        required: false
+      - in: query
+        name: demoCliEmail
+        description: Search filter for Customer email address
+        type: string
+        required: false
+      - in: query
+        name: demoCliHomePhone
+        description: Search filter for Customer home phone number
+        type: string
+        required: false
+      - in: query
+        name: demoCliWorkPhone
+        description: Search filter for Customer work phone number
+        type: string
+        required: false
+      - in: query
+        name: demoCliMobilePhone
+        description: Search filter for Customer mobile phone number
+        type: string
+        required: false
+      - in: query
+        name: demoCliFax
+        description: Search filter for Customer fax number
+        type: string
+        required: false
+      - in: query
+        name: demoCliType
+        description: Search filter for Customer type
+        type: string
+        required: false
+        enum:
+        - T1
+        - T2
+        - T3
+      - in: query
+        name: demoCliComments
+        description: Search filter for Useful comments on customer
+        type: string
+        required: false
+      - in: query
+        name: demoCliPlacemapLabel
+        description: Search filter for Customer place map label
         type: string
         required: false
       tags:
@@ -728,8 +811,18 @@ paths:
         type: string
         required: false
       - in: query
+        name: remoteRloProductData
+        description: Search filter for Product data
+        type: string
+        required: false
+      - in: query
         name: remoteRloClient
         description: Search filter for Customer
+        type: string
+        required: false
+      - in: query
+        name: remoteRloCustomerData
+        description: Search filter for Customer data
         type: string
         required: false
       - in: query
@@ -1147,6 +1240,12 @@ definitions:
   RemoteDemoLocalOrder:
     type: object
     properties:
+      remoteRloProductData:
+        description: Product data
+        type: string
+      remoteRloCustomerData:
+        description: Customer data
+        type: string
       remoteRloDate:
         description: Date
         type: string
@@ -1265,14 +1364,68 @@ definitions:
   RemoteDemoClient:
     type: object
     properties:
-      demoCliFirstname:
-        description: Customer first name
+      demoCliCity:
+        description: Customer city
         type: string
+      demoCliCode:
+        description: Customer code
+        type: string
+      demoCliCoords:
+        description: Customer geoccordinates
+        type: string
+        example: latitude;longitude
+      demoCliType:
+        description: Customer type
+        type: string
+        enum:
+        - T1
+        - T2
+        - T3
       demoCliLastname:
         description: Customer last name
         type: string
+      demoCliHomePhone:
+        description: Customer home phone number
+        type: string
+      demoCliZipCode:
+        description: Customer postal code
+        type: string
+      demoCliFirstname:
+        description: Customer first name
+        type: string
+      demoCliComments:
+        description: Useful comments on customer
+        type: string
+      demoCliEmail:
+        description: Customer email address
+        type: string
+      demoCliPlacemapLabel:
+        description: Customer place map label
+        type: string
+      demoCliFax:
+        description: Customer fax number
+        type: string
       row_id:
         description: Unique technical row ID
+        type: string
+      demoCliWorkPhone:
+        description: Customer work phone number
+        type: string
+      demoCliCountry:
+        description: Customer country
+        type: string
+        enum:
+        - FR
+        - UK
+        - SP
+      demoCliAddress1:
+        description: Customer address (line 1)
+        type: string
+      demoCliMobilePhone:
+        description: Customer mobile phone number
+        type: string
+      demoCliAddress2:
+        description: Customer address (line 2)
         type: string
   ArrayOfRemoteDemoClient:
     type: array

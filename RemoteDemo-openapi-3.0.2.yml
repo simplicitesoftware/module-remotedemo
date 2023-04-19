@@ -83,6 +83,12 @@ components:
     RemoteDemoLocalOrder:
       type: object
       properties:
+        remoteRloProductData:
+          description: Product data
+          type: string
+        remoteRloCustomerData:
+          description: Customer data
+          type: string
         remoteRloDate:
           description: Date
           type: string
@@ -201,14 +207,68 @@ components:
     RemoteDemoClient:
       type: object
       properties:
-        demoCliFirstname:
-          description: Customer first name
+        demoCliCity:
+          description: Customer city
           type: string
+        demoCliCode:
+          description: Customer code
+          type: string
+        demoCliCoords:
+          description: Customer geoccordinates
+          type: string
+          example: latitude;longitude
+        demoCliType:
+          description: Customer type
+          type: string
+          enum:
+          - T1
+          - T2
+          - T3
         demoCliLastname:
           description: Customer last name
           type: string
+        demoCliHomePhone:
+          description: Customer home phone number
+          type: string
+        demoCliZipCode:
+          description: Customer postal code
+          type: string
+        demoCliFirstname:
+          description: Customer first name
+          type: string
+        demoCliComments:
+          description: Useful comments on customer
+          type: string
+        demoCliEmail:
+          description: Customer email address
+          type: string
+        demoCliPlacemapLabel:
+          description: Customer place map label
+          type: string
+        demoCliFax:
+          description: Customer fax number
+          type: string
         row_id:
           description: Unique technical row ID
+          type: string
+        demoCliWorkPhone:
+          description: Customer work phone number
+          type: string
+        demoCliCountry:
+          description: Customer country
+          type: string
+          enum:
+          - FR
+          - UK
+          - SP
+        demoCliAddress1:
+          description: Customer address (line 1)
+          type: string
+        demoCliMobilePhone:
+          description: Customer mobile phone number
+          type: string
+        demoCliAddress2:
+          description: Customer address (line 2)
           type: string
     ArrayOfRemoteDemoClient:
       type: array
@@ -763,6 +823,12 @@ paths:
       - schema:
           type: string
         in: query
+        name: demoCliCode
+        description: Search filter for Customer code
+        required: false
+      - schema:
+          type: string
+        in: query
         name: demoCliFirstname
         description: Search filter for Customer first name
         required: false
@@ -771,6 +837,98 @@ paths:
         in: query
         name: demoCliLastname
         description: Search filter for Customer last name
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: demoCliAddress1
+        description: Search filter for Customer address (line 1)
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: demoCliAddress2
+        description: Search filter for Customer address (line 2)
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: demoCliZipCode
+        description: Search filter for Customer postal code
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: demoCliCity
+        description: Search filter for Customer city
+        required: false
+      - schema:
+          type: string
+          enum:
+          - FR
+          - UK
+          - SP
+        in: query
+        name: demoCliCountry
+        description: Search filter for Customer country
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: demoCliCoords
+        description: Search filter for Customer geoccordinates
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: demoCliEmail
+        description: Search filter for Customer email address
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: demoCliHomePhone
+        description: Search filter for Customer home phone number
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: demoCliWorkPhone
+        description: Search filter for Customer work phone number
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: demoCliMobilePhone
+        description: Search filter for Customer mobile phone number
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: demoCliFax
+        description: Search filter for Customer fax number
+        required: false
+      - schema:
+          type: string
+          enum:
+          - T1
+          - T2
+          - T3
+        in: query
+        name: demoCliType
+        description: Search filter for Customer type
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: demoCliComments
+        description: Search filter for Useful comments on customer
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: demoCliPlacemapLabel
+        description: Search filter for Customer place map label
         required: false
       tags:
       - RemoteDemoClient
@@ -1138,8 +1296,20 @@ paths:
       - schema:
           type: string
         in: query
+        name: remoteRloProductData
+        description: Search filter for Product data
+        required: false
+      - schema:
+          type: string
+        in: query
         name: remoteRloClient
         description: Search filter for Customer
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: remoteRloCustomerData
+        description: Search filter for Customer data
         required: false
       - schema:
           type: string

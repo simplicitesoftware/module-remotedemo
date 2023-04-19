@@ -65,7 +65,9 @@ Simplicité remote _customer_ object from the Demo application.
 | Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
 |--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
 | `remoteRloProduct`                                           | object                                   | yes*     | yes       |          | -                                                                                |
+| `remoteRloProductData`                                       | char(100)                                |          |           |          | -                                                                                |
 | `remoteRloClient`                                            | object                                   | yes*     | yes       |          | -                                                                                |
+| `remoteRloCustomerData`                                      | char(100)                                |          |           |          | -                                                                                |
 | `remoteRloDate`                                              | datetime                                 | yes*     | yes       |          | -                                                                                |
 | `remoteRloTotal`                                             | bigdec(10, 2)                            | yes      | yes       |          | -                                                                                |
 
