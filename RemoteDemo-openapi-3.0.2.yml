@@ -83,11 +83,14 @@ components:
     RemoteDemoLocalOrder:
       type: object
       properties:
-        remoteRloProductData:
-          description: Product data
+        remoteRloClientLabel:
+          description: Customer label
           type: string
-        remoteRloCustomerData:
-          description: Customer data
+        remoteRloQuantity:
+          description: Quantity
+          type: integer
+        remoteRloProductLabel:
+          description: Product label
           type: string
         remoteRloDate:
           description: Date
@@ -99,6 +102,9 @@ components:
         remoteRloProduct:
           description: Product
           type: object
+        remoteRloComments:
+          description: Comments
+          type: string
         row_id:
           description: Unique technical row ID
           type: string
@@ -1296,8 +1302,8 @@ paths:
       - schema:
           type: string
         in: query
-        name: remoteRloProductData
-        description: Search filter for Product data
+        name: remoteRloProductLabel
+        description: Search filter for Product label
         required: false
       - schema:
           type: string
@@ -1308,8 +1314,8 @@ paths:
       - schema:
           type: string
         in: query
-        name: remoteRloCustomerData
-        description: Search filter for Customer data
+        name: remoteRloClientLabel
+        description: Search filter for Customer label
         required: false
       - schema:
           type: string
@@ -1318,10 +1324,22 @@ paths:
         description: Search filter for Date
         required: false
       - schema:
+          type: integer
+        in: query
+        name: remoteRloQuantity
+        description: Search filter for Quantity
+        required: false
+      - schema:
           type: string
         in: query
         name: remoteRloTotal
         description: Search filter for Total
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: remoteRloComments
+        description: Search filter for Comments
         required: false
       - schema:
           type: string

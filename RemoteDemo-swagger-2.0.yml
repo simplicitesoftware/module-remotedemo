@@ -811,8 +811,8 @@ paths:
         type: string
         required: false
       - in: query
-        name: remoteRloProductData
-        description: Search filter for Product data
+        name: remoteRloProductLabel
+        description: Search filter for Product label
         type: string
         required: false
       - in: query
@@ -821,8 +821,8 @@ paths:
         type: string
         required: false
       - in: query
-        name: remoteRloCustomerData
-        description: Search filter for Customer data
+        name: remoteRloClientLabel
+        description: Search filter for Customer label
         type: string
         required: false
       - in: query
@@ -831,8 +831,18 @@ paths:
         type: string
         required: false
       - in: query
+        name: remoteRloQuantity
+        description: Search filter for Quantity
+        type: integer
+        required: false
+      - in: query
         name: remoteRloTotal
         description: Search filter for Total
+        type: string
+        required: false
+      - in: query
+        name: remoteRloComments
+        description: Search filter for Comments
         type: string
         required: false
       - in: query
@@ -1240,11 +1250,14 @@ definitions:
   RemoteDemoLocalOrder:
     type: object
     properties:
-      remoteRloProductData:
-        description: Product data
+      remoteRloClientLabel:
+        description: Customer label
         type: string
-      remoteRloCustomerData:
-        description: Customer data
+      remoteRloQuantity:
+        description: Quantity
+        type: integer
+      remoteRloProductLabel:
+        description: Product label
         type: string
       remoteRloDate:
         description: Date
@@ -1256,6 +1269,9 @@ definitions:
       remoteRloProduct:
         description: Product
         type: object
+      remoteRloComments:
+        description: Comments
+        type: string
       row_id:
         description: Unique technical row ID
         type: string
