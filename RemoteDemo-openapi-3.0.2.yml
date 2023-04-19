@@ -46,9 +46,6 @@ components:
         demoPrdUnitPrice:
           description: Unit price of product
           type: number
-        Attrib:
-          description: Attrib
-          type: string
         demoPrdSupId__demoSupUsrId:
           description: User responsible of supplier
           type: string
@@ -231,6 +228,8 @@ components:
       bearerFormat: Simplicite token
       scheme: bearer
       type: http
+servers:
+- url: /api
 openapi: 3.0.2
 paths:
   /login:
@@ -399,7 +398,7 @@ paths:
       - RemoteDemoSupplier
   /rest/RemoteDemoSupplier/{row_id}:
     post:
-      summary: Create a new RemoteDemoSupplierbusiness object record
+      summary: Create a new RemoteDemoSupplier business object record
       security:
       - bearerAuth: []
       requestBody:
@@ -543,7 +542,7 @@ paths:
       tags:
       - RemoteDemoSupplier
     put:
-      summary: Update a RemoteDemoSupplierbusiness object record
+      summary: Update a RemoteDemoSupplier business object record
       security:
       - bearerAuth: []
       requestBody:
@@ -740,17 +739,11 @@ paths:
         name: demoPrdComments
         description: Search filter for Comments on product
         required: false
-      - schema:
-          type: string
-        in: query
-        name: Attrib
-        description: Search filter for Attrib
-        required: false
       tags:
       - RemoteDemoProduct
   /rest/RemoteDemoProduct/{row_id}:
     post:
-      summary: Create a new RemoteDemoProductbusiness object record
+      summary: Create a new RemoteDemoProduct business object record
       security:
       - bearerAuth: []
       requestBody:
@@ -894,7 +887,7 @@ paths:
       tags:
       - RemoteDemoProduct
     put:
-      summary: Update a RemoteDemoProductbusiness object record
+      summary: Update a RemoteDemoProduct business object record
       security:
       - bearerAuth: []
       requestBody:

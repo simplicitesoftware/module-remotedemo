@@ -3,6 +3,7 @@
 # \__ \ | '  \| '_ \ | / _| |  _/ -_)
 # |___/_|_|_|_| .__/_|_\__|_|\__\___|
 #             |_| Module: RemoteDemo 5
+basePath: /api
 paths:
   /login:
     get:
@@ -147,7 +148,7 @@ paths:
       - RemoteDemoSupplier
   /rest/RemoteDemoSupplier/{row_id}:
     post:
-      summary: Create a new RemoteDemoSupplierbusiness object record
+      summary: Create a new RemoteDemoSupplier business object record
       security:
       - bearerAuth: []
       produces:
@@ -266,7 +267,7 @@ paths:
       tags:
       - RemoteDemoSupplier
     put:
-      summary: Update a RemoteDemoSupplierbusiness object record
+      summary: Update a RemoteDemoSupplier business object record
       security:
       - bearerAuth: []
       produces:
@@ -432,16 +433,11 @@ paths:
         description: Search filter for Comments on product
         type: string
         required: false
-      - in: query
-        name: Attrib
-        description: Search filter for Attrib
-        type: string
-        required: false
       tags:
       - RemoteDemoProduct
   /rest/RemoteDemoProduct/{row_id}:
     post:
-      summary: Create a new RemoteDemoProductbusiness object record
+      summary: Create a new RemoteDemoProduct business object record
       security:
       - bearerAuth: []
       produces:
@@ -560,7 +556,7 @@ paths:
       tags:
       - RemoteDemoProduct
     put:
-      summary: Update a RemoteDemoProductbusiness object record
+      summary: Update a RemoteDemoProduct business object record
       security:
       - bearerAuth: []
       produces:
@@ -673,9 +669,6 @@ definitions:
       demoPrdUnitPrice:
         description: Unit price of product
         type: number
-      Attrib:
-        description: Attrib
-        type: string
       demoPrdSupId__demoSupUsrId:
         description: User responsible of supplier
         type: string
