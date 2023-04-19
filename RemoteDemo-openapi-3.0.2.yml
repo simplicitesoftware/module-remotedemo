@@ -80,6 +80,28 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/RemoteDemoProduct'
+    RemoteDemoLocalOrder:
+      type: object
+      properties:
+        remoteRloDate:
+          description: Date
+          type: string
+          example: yyyy-MM-dd HH:mm:ss
+        row_metaobject_id:
+          description: remote_rlo_client
+          type: string
+        remoteRloProduct:
+          description: Product
+          type: object
+        row_id:
+          description: Unique technical row ID
+          type: string
+        remoteRloClient:
+          description: Customer
+          type: object
+        remoteRloTotal:
+          description: Total
+          type: string
     PublicationResult:
       type: object
       properties:
@@ -176,6 +198,26 @@ components:
         item:
           description: Object item with lists of linked objects' items
           type: object
+    RemoteDemoClient:
+      type: object
+      properties:
+        demoCliFirstname:
+          description: Customer first name
+          type: string
+        demoCliLastname:
+          description: Customer last name
+          type: string
+        row_id:
+          description: Unique technical row ID
+          type: string
+    ArrayOfRemoteDemoClient:
+      type: array
+      items:
+        $ref: '#/components/schemas/RemoteDemoClient'
+    ArrayOfRemoteDemoLocalOrder:
+      type: array
+      items:
+        $ref: '#/components/schemas/RemoteDemoLocalOrder'
     Error400:
       type: object
       properties:
@@ -232,6 +274,396 @@ servers:
 - url: /api
 openapi: 3.0.2
 paths:
+  /rest/RemoteDemoLocalOrder/{row_id}:
+    post:
+      summary: Create a new RemoteDemoLocalOrder business object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoteDemoLocalOrder'
+      operationId: obj-remotedemolocalorder-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteDemoLocalOrder'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - RemoteDemoLocalOrder
+    get:
+      summary: Get a RemoteDemoLocalOrder business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-remotedemolocalorder-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteDemoLocalOrder'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - RemoteDemoLocalOrder
+    delete:
+      summary: Delete a RemoteDemoLocalOrder business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-remotedemolocalorder-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - RemoteDemoLocalOrder
+    put:
+      summary: Update a RemoteDemoLocalOrder business object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoteDemoLocalOrder'
+      operationId: obj-remotedemolocalorder-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteDemoLocalOrder'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - RemoteDemoLocalOrder
+  /rest/RemoteDemoClient/{row_id}:
+    post:
+      summary: Create a new RemoteDemoClient business object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoteDemoClient'
+      operationId: obj-remotedemoclient-create
+      responses:
+        '200':
+          description: Success in creating a new business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteDemoClient'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - RemoteDemoClient
+    get:
+      summary: Get a RemoteDemoClient business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-remotedemoclient-get
+      responses:
+        '200':
+          description: Success in getting a single business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteDemoClient'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_documents
+        description: Inline documents?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_thumbnails
+        description: Inline documents' thumbnails?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _inline_objects
+        description: Inline objects?
+        required: false
+      tags:
+      - RemoteDemoClient
+    delete:
+      summary: Delete a RemoteDemoClient business object record
+      security:
+      - bearerAuth: []
+      operationId: obj-remotedemoclient-delete
+      responses:
+        '200':
+          description: Success in deleting a business object record
+          content:
+            application/json: {}
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - RemoteDemoClient
+    put:
+      summary: Update a RemoteDemoClient business object record
+      security:
+      - bearerAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemoteDemoClient'
+      operationId: obj-remotedemoclient-update
+      responses:
+        '200':
+          description: Success in updating a business object record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoteDemoClient'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+        '404':
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error404'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: row_id
+        description: Row ID (or empty or _ for all row IDs)
+        required: true
+      tags:
+      - RemoteDemoClient
   /login:
     get:
       summary: Login (obtain bearer token)
@@ -282,6 +714,66 @@ paths:
                 $ref: '#/components/schemas/Error401'
       tags:
       - session
+  /rest/RemoteDemoClient:
+    get:
+      summary: Search RemoteDemoClient business object records or get contextualized
+        metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-remotedemoclient-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfRemoteDemoClient'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: demoCliFirstname
+        description: Search filter for Customer first name
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: demoCliLastname
+        description: Search filter for Customer last name
+        required: false
+      tags:
+      - RemoteDemoClient
   /rest/RemoteDemoSupplier:
     get:
       summary: Search RemoteDemoSupplier business object records or get contextualized
@@ -591,6 +1083,84 @@ paths:
         required: true
       tags:
       - RemoteDemoSupplier
+  /rest/RemoteDemoLocalOrder:
+    get:
+      summary: Search RemoteDemoLocalOrder business object records or get contextualized
+        metadata
+      security:
+      - bearerAuth: []
+      operationId: obj-remotedemolocalorder-search
+      responses:
+        '200':
+          description: Success in searching business object records (or in getting
+            contextualized business object metadata, documentation, ...)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ArrayOfRemoteDemoLocalOrder'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error500'
+      parameters:
+      - schema:
+          type: boolean
+        in: query
+        name: _metadata
+        description: Metadata?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _count
+        description: Count?
+        required: false
+      - schema:
+          type: boolean
+        in: query
+        name: _doc
+        description: Documentation?
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: remoteRloProduct
+        description: Search filter for Product
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: remoteRloClient
+        description: Search filter for Customer
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: remoteRloDate
+        description: Search filter for Date
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: remoteRloTotal
+        description: Search filter for Total
+        required: false
+      - schema:
+          type: string
+        in: query
+        name: row_metaobject_id
+        description: Search filter for remote_rlo_client
+        required: false
+      tags:
+      - RemoteDemoLocalOrder
   /rest/RemoteDemoProduct:
     get:
       summary: Search RemoteDemoProduct business object records or get contextualized
@@ -974,6 +1544,10 @@ info:
   title: RemoteDemo
   version: '5'
 tags:
+- name: RemoteDemoClient
+  description: Remote customer
+- name: RemoteDemoLocalOrder
+  description: Local order
 - name: RemoteDemoProduct
   description: Remote product
 - name: RemoteDemoSupplier

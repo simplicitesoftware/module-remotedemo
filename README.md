@@ -43,6 +43,32 @@ There is one system parameters to configure:
 
 > **Note**: it is possible to ovveride these default parameters per user using corresponding user parameters.
 
+`RemoteDemoClient` business object definition
+---------------------------------------------
+
+Simplicité remote _customer_ object from the Demo application.
+
+**Note**: the fields are retreived from the Simplicité metadata
+
+### Fields
+
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
+|--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
+
+`RemoteDemoLocalOrder` business object definition
+-------------------------------------------------
+
+
+
+### Fields
+
+| Name                                                         | Type                                     | Required | Updatable | Personal | Description                                                                      |
+|--------------------------------------------------------------|------------------------------------------|----------|-----------|----------|----------------------------------------------------------------------------------|
+| `remoteRloProduct`                                           | object                                   | yes*     | yes       |          | -                                                                                |
+| `remoteRloClient`                                            | object                                   | yes*     | yes       |          | -                                                                                |
+| `remoteRloDate`                                              | datetime                                 | yes*     | yes       |          | -                                                                                |
+| `remoteRloTotal`                                             | bigdec(10, 2)                            | yes      | yes       |          | -                                                                                |
+
 `RemoteDemoProduct` business object definition
 ----------------------------------------------
 
