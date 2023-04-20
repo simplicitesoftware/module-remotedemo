@@ -625,7 +625,7 @@ There is one system parameters to configure:
 		<obo_updall>1</obo_updall>
 		<obo_delall>1</obo_delall>
 		<obo_listsearch>1</obo_listsearch>
-		<obo_list_edit>N;L;E</obo_list_edit>
+		<obo_list_edit>N</obo_list_edit>
 		<obo_useform>1</obo_useform>
 		<obo_title/>
 		<obo_icon>fas/clipboard</obo_icon>
@@ -1243,31 +1243,45 @@ There is one system parameters to configure:
 	<name>ObjectCtxHelp</name>
 	<action>upsert</action>
 	<data>
+		<och_object_id.obo_name>RemoteDemoClient</och_object_id.obo_name>
+		<och_context>S;L;C;U;D;R;X;M;P;A</och_context>
+		<och_lang>ENU</och_lang>
+		<och_help><![CDATA[<p>This "customer" object is hosted on a <strong>remote</strong> Simplicit&eacute;&reg; instance</p>]]></och_help>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<och_object_id.obo_name>RemoteDemoClient</och_object_id.obo_name>
+		<och_context>S;L;C;U;D;R;X;M;P;A</och_context>
+		<och_lang>FRA</och_lang>
+		<och_help><![CDATA[<p>Cet objet "client" est h&eacute;berg&eacute; sur une instance Simplicit&eacute;&reg; <strong>distante</strong></p>]]></och_help>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
 		<och_object_id.obo_name>RemoteDemoProduct</och_object_id.obo_name>
 		<och_context>S;L;C;U;D;R;X;M;P;A</och_context>
 		<och_lang>ENU</och_lang>
-		<och_help><![CDATA[These object is hosted on a <b>remote</b> Simplicit&eacute;&reg; instance]]></och_help>
+		<och_help><![CDATA[<p>This "product" object is hosted on a <strong>remote</strong> Simplicit&eacute;&reg; instance</p>]]></och_help>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
 		<och_object_id.obo_name>RemoteDemoProduct</och_object_id.obo_name>
 		<och_context>S;L;C;U;D;R;X;M;P;A</och_context>
 		<och_lang>FRA</och_lang>
-		<och_help><![CDATA[Cet objet est hébergé sur une instance Simplicit&eacute;&reg; <b>distante</b>]]></och_help>
+		<och_help><![CDATA[<p>Cet objet "produit" est h&eacute;berg&eacute; sur une instance Simplicit&eacute;&reg; <strong>distante</strong></p>]]></och_help>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
 		<och_object_id.obo_name>RemoteDemoSupplier</och_object_id.obo_name>
 		<och_context>S;L;C;U;D;R;X;M;P;A</och_context>
 		<och_lang>ENU</och_lang>
-		<och_help><![CDATA[These object is hosted on a <b>remote</b> Simplicit&eacute;&reg; instance]]></och_help>
+		<och_help><![CDATA[<p>This "supplier" object is hosted on a <strong>remote</strong> Simplicit&eacute;&reg; instance</p>]]></och_help>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
 		<och_object_id.obo_name>RemoteDemoSupplier</och_object_id.obo_name>
 		<och_context>S;L;C;U;D;R;X;M;P;A</och_context>
 		<och_lang>FRA</och_lang>
-		<och_help><![CDATA[Cet objet est hébergé sur une instance Simplicit&eacute;&reg; <b>distante</b>]]></och_help>
+		<och_help><![CDATA[<p>Cet objet "fournisseur" est h&eacute;berg&eacute; sur une instance Simplicit&eacute;&reg; <strong>distante</strong></p>]]></och_help>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 </object>
@@ -1541,7 +1555,7 @@ There is one system parameters to configure:
 		<tsl_id.obo_name>RemoteDemoClient</tsl_id.obo_name>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>Remote customer|Remote customers</tsl_value>
-		<tsl_help><![CDATA[<p>This "customer" object is hosted on a remote Simplicit&eacute;&reg; instance</p>]]></tsl_help>
+		<tsl_help/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
@@ -1557,7 +1571,7 @@ There is one system parameters to configure:
 		<tsl_id.obo_name>RemoteDemoProduct</tsl_id.obo_name>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>Remote product|Remote products</tsl_value>
-		<tsl_help><![CDATA[<p>This "product" object is hosted on a <strong>remote </strong>Simplicit&eacute;&reg; instance</p>]]></tsl_help>
+		<tsl_help/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
@@ -1565,7 +1579,7 @@ There is one system parameters to configure:
 		<tsl_id.obo_name>RemoteDemoSupplier</tsl_id.obo_name>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>Remote supplier|Remote suppliers</tsl_value>
-		<tsl_help><![CDATA[<p>This "supplier" object is hosted on a <strong>remote</strong> Simplicit&eacute;&reg; instance</p>]]></tsl_help>
+		<tsl_help/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
@@ -1573,7 +1587,7 @@ There is one system parameters to configure:
 		<tsl_id.obo_name>RemoteDemoClient</tsl_id.obo_name>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>Client distant|Clients distants</tsl_value>
-		<tsl_help><![CDATA[<p>Cet objet "client" est h&eacute;berg&eacute; sur une instance Simplicit&eacute;&reg; distante</p>]]></tsl_help>
+		<tsl_help/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
@@ -1589,7 +1603,7 @@ There is one system parameters to configure:
 		<tsl_id.obo_name>RemoteDemoProduct</tsl_id.obo_name>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>Produit distant|Produits distants</tsl_value>
-		<tsl_help><![CDATA[<p>Cet objet "produit" est h&eacute;berg&eacute; sur une instance Simplicit&eacute;&reg; <strong>distante</strong></p>]]></tsl_help>
+		<tsl_help/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
@@ -1597,7 +1611,7 @@ There is one system parameters to configure:
 		<tsl_id.obo_name>RemoteDemoSupplier</tsl_id.obo_name>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>Fournisseur distant|Fournisseurs distants</tsl_value>
-		<tsl_help><![CDATA[<p>Cet objet "fournisseur" est h&eacute;berg&eacute; sur une instance Simplicit&eacute;&reg; <strong>distante</strong></p>]]></tsl_help>
+		<tsl_help/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 </object>
