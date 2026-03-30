@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<simplicite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.simplicite.fr/base" xsi:schemaLocation="http://www.simplicite.fr/base https://www.simplicite.io/resources/schemas/base.xsd">
+<simplicite elements="91" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.simplicite.fr/base" xsi:schemaLocation="http://www.simplicite.fr/base https://www.simplicite.io/resources/schemas/base.xsd">
 <object>
 	<name>Module</name>
 	<action>upsert</action>
 	<data>
 		<mdl_name>RemoteDemo</mdl_name>
-		<mdl_version>5</mdl_version>
+		<mdl_version>6</mdl_version>
 		<mdl_prefix>remote</mdl_prefix>
 		<mdl_url><![CDATA[{
-	"type": "git",
-	"origin": {
-		"uri": "https://github.com/simplicitesoftware/module-remotedemo.git"
-	}
+    "type": "git",
+    "origin": {"uri": "https://github.com/simplicitesoftware/module-remotedemo.git"}
 }]]></mdl_url>
-		<mdl_type>T</mdl_type>
+		<mdl_type>C</mdl_type>
 		<mdl_comment><![CDATA[[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=simplicite-modules-RemoteDemo&metric=alert_status)](https://sonarcloud.io/dashboard?id=simplicite-modules-RemoteDemo)
 
 ### Introduction
@@ -53,13 +51,13 @@ There is one system parameters to configure:
 	<data>
 		<sys_code>REMOTESIMPLICITE_CREDENTIALS</sys_code>
 		<sys_value><![CDATA[{
-	"url": "https://demo.dev.simplicite.io",
+	"url": "https://demo.dev2.simplicite.io",
 	"username": "admin",
 	"password": "simplicite",
 	"encoding": "UTF-8"
 }]]></sys_value>
-		<sys_value2/>
 		<sys_type>PRV</sys_type>
+		<sys_event>0</sys_event>
 		<sys_desc/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
@@ -69,6 +67,7 @@ There is one system parameters to configure:
 	<action>upsert</action>
 	<data>
 		<viw_name>RemoteDemoHome</viw_name>
+		<viw_type>H</viw_type>
 		<viw_ui><![CDATA[<div><div class="area" data-area="1:="></div><div class="area" data-area="2"></div></div>]]></viw_ui>
 		<viw_order>200</viw_order>
 		<viw_icon>simplicite</viw_icon>
@@ -85,8 +84,8 @@ There is one system parameters to configure:
 	<data>
 		<mod_name>RemoteDemoObjects</mod_name>
 		<mod_template_id.mtp_name>ModelBusinessObject</mod_template_id.mtp_name>
-		<mod_doc>files/Model/RemoteDemoObjects.svg</mod_doc>
 		<mod_json/>
+		<mod_doc>files/Model/RemoteDemoObjects.svg</mod_doc>
 		<mod_image>files/Model/RemoteDemoObjects.png</mod_image>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
@@ -145,8 +144,8 @@ There is one system parameters to configure:
 	<data>
 		<fld_name>remoteRloClient</fld_name>
 		<fld_dbname>remote_rlo_client</fld_dbname>
-		<fld_visible>2</fld_visible>
-		<fld_updatable>1</fld_updatable>
+		<fld_visible>3</fld_visible>
+		<fld_updatable>2;3</fld_updatable>
 		<fld_required>1</fld_required>
 		<fld_fonctid>1</fld_fonctid>
 		<fld_research>1</fld_research>
@@ -155,6 +154,7 @@ There is one system parameters to configure:
 		<fld_more>0</fld_more>
 		<fld_listmore>0</fld_listmore>
 		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
 		<fld_tray/>
 		<fld_type>24</fld_type>
 		<fld_type_id.flt_code/>
@@ -177,21 +177,24 @@ There is one system parameters to configure:
 		<fld_objlist><![CDATA[RemoteDemoClient]]></fld_objlist>
 		<fld_comment/>
 		<fld_classification/>
+		<fld_anon/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
 	</data>
 	<data>
-		<fld_name oldvalue="remoteRloCustomerLabel" oldvalue1="remoteRloCustomerData">remoteRloClientLabel</fld_name>
-		<fld_dbname>remote_rlo_client_label</fld_dbname>
-		<fld_visible>3</fld_visible>
+		<fld_name>remoteRloClientLabel</fld_name>
+		<fld_dbname/>
+		<fld_visible>2</fld_visible>
 		<fld_updatable>0</fld_updatable>
 		<fld_required>0</fld_required>
 		<fld_fonctid>0</fld_fonctid>
-		<fld_research>1</fld_research>
+		<fld_research>0</fld_research>
 		<fld_researchreq>0</fld_researchreq>
 		<fld_sort>C</fld_sort>
 		<fld_more>1</fld_more>
 		<fld_listmore>0</fld_listmore>
 		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
 		<fld_tray/>
 		<fld_type>3</fld_type>
 		<fld_type_id.flt_code/>
@@ -214,13 +217,15 @@ There is one system parameters to configure:
 		<fld_objlist/>
 		<fld_comment/>
 		<fld_classification/>
+		<fld_anon/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
 	</data>
 	<data>
 		<fld_name>remoteRloComments</fld_name>
 		<fld_dbname>remote_rlo_comments</fld_dbname>
 		<fld_visible>2</fld_visible>
-		<fld_updatable>1</fld_updatable>
+		<fld_updatable>2;3</fld_updatable>
 		<fld_required>0</fld_required>
 		<fld_fonctid>0</fld_fonctid>
 		<fld_research/>
@@ -229,6 +234,7 @@ There is one system parameters to configure:
 		<fld_more>0</fld_more>
 		<fld_listmore>0</fld_listmore>
 		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
 		<fld_tray/>
 		<fld_type>11</fld_type>
 		<fld_type_id.flt_code/>
@@ -251,7 +257,9 @@ There is one system parameters to configure:
 		<fld_objlist/>
 		<fld_comment/>
 		<fld_classification/>
+		<fld_anon/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
 	</data>
 	<data>
 		<fld_name>remoteRloDate</fld_name>
@@ -266,6 +274,7 @@ There is one system parameters to configure:
 		<fld_more>0</fld_more>
 		<fld_listmore>0</fld_listmore>
 		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
 		<fld_tray/>
 		<fld_type>5</fld_type>
 		<fld_type_id.flt_code/>
@@ -288,13 +297,15 @@ There is one system parameters to configure:
 		<fld_objlist/>
 		<fld_comment/>
 		<fld_classification/>
+		<fld_anon/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
 	</data>
 	<data>
 		<fld_name>remoteRloProduct</fld_name>
 		<fld_dbname>remote_rlo_product</fld_dbname>
-		<fld_visible>2</fld_visible>
-		<fld_updatable>1</fld_updatable>
+		<fld_visible>3</fld_visible>
+		<fld_updatable>2;3</fld_updatable>
 		<fld_required>1</fld_required>
 		<fld_fonctid>1</fld_fonctid>
 		<fld_research>1</fld_research>
@@ -303,6 +314,7 @@ There is one system parameters to configure:
 		<fld_more>0</fld_more>
 		<fld_listmore>0</fld_listmore>
 		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
 		<fld_tray/>
 		<fld_type>24</fld_type>
 		<fld_type_id.flt_code/>
@@ -325,21 +337,24 @@ There is one system parameters to configure:
 		<fld_objlist><![CDATA[RemoteDemoProduct]]></fld_objlist>
 		<fld_comment/>
 		<fld_classification/>
+		<fld_anon/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
 	</data>
 	<data>
-		<fld_name oldvalue="remoteRloProductData">remoteRloProductLabel</fld_name>
-		<fld_dbname>remote_rlo_product_label</fld_dbname>
-		<fld_visible>3</fld_visible>
+		<fld_name>remoteRloProductLabel</fld_name>
+		<fld_dbname/>
+		<fld_visible>2</fld_visible>
 		<fld_updatable>0</fld_updatable>
 		<fld_required>0</fld_required>
 		<fld_fonctid>0</fld_fonctid>
-		<fld_research>1</fld_research>
+		<fld_research>0</fld_research>
 		<fld_researchreq>0</fld_researchreq>
 		<fld_sort>C</fld_sort>
 		<fld_more>1</fld_more>
 		<fld_listmore>0</fld_listmore>
 		<fld_listsum/>
+		<fld_exportable>1</fld_exportable>
 		<fld_tray/>
 		<fld_type>3</fld_type>
 		<fld_type_id.flt_code/>
@@ -362,13 +377,15 @@ There is one system parameters to configure:
 		<fld_objlist/>
 		<fld_comment/>
 		<fld_classification/>
+		<fld_anon/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
 	</data>
 	<data>
 		<fld_name>remoteRloQuantity</fld_name>
 		<fld_dbname>remote_rlo_quantity</fld_dbname>
 		<fld_visible>3</fld_visible>
-		<fld_updatable>1</fld_updatable>
+		<fld_updatable>2;3</fld_updatable>
 		<fld_required>1</fld_required>
 		<fld_fonctid>0</fld_fonctid>
 		<fld_research>1</fld_research>
@@ -377,6 +394,7 @@ There is one system parameters to configure:
 		<fld_more>0</fld_more>
 		<fld_listmore>0</fld_listmore>
 		<fld_listsum>1</fld_listsum>
+		<fld_exportable>1</fld_exportable>
 		<fld_tray/>
 		<fld_type>1</fld_type>
 		<fld_type_id.flt_code/>
@@ -399,7 +417,9 @@ There is one system parameters to configure:
 		<fld_objlist/>
 		<fld_comment><![CDATA[Quantity]]></fld_comment>
 		<fld_classification/>
+		<fld_anon/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
 	</data>
 	<data>
 		<fld_name>remoteRloTotal</fld_name>
@@ -414,11 +434,12 @@ There is one system parameters to configure:
 		<fld_more>0</fld_more>
 		<fld_listmore>0</fld_listmore>
 		<fld_listsum>1</fld_listsum>
+		<fld_exportable>1</fld_exportable>
 		<fld_tray/>
 		<fld_type>26</fld_type>
 		<fld_type_id.flt_code/>
 		<fld_list_id.lov_name/>
-		<fld_copy>1</fld_copy>
+		<fld_copy>0</fld_copy>
 		<fld_size>10</fld_size>
 		<fld_minsize/>
 		<fld_precision>2</fld_precision>
@@ -436,7 +457,9 @@ There is one system parameters to configure:
 		<fld_objlist/>
 		<fld_comment/>
 		<fld_classification/>
+		<fld_anon/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+		<fld_incrementsyntax/>
 	</data>
 </object>
 <object>
@@ -457,6 +480,8 @@ There is one system parameters to configure:
 </div>]]></tpl_ui>
 		<tpl_min/>
 		<tpl_image/>
+		<tpl_grid/>
+		<tpl_context/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 </object>
@@ -526,7 +551,7 @@ There is one system parameters to configure:
 	<name>ObjectInternal</name>
 	<action>upsert</action>
 	<data>
-		<obo_name oldvalue="RemoteDemoClient">RemoteDemoClient</obo_name>
+		<obo_name>RemoteDemoClient</obo_name>
 		<obo_dbtable>service-simplicite</obo_dbtable>
 		<obo_role>OBJ</obo_role>
 		<obo_class/>
@@ -542,14 +567,13 @@ There is one system parameters to configure:
     "credentials": "REMOTESIMPLICITE_CREDENTIALS",
     "remoteName": "DemoClient"
 }]]></obo_searchspec>
-		<obo_delspec/>
 		<obo_exportorder>0</obo_exportorder>
 		<obo_distinct>0</obo_distinct>
 		<obo_indexable>0</obo_indexable>
 		<obo_groupby>0</obo_groupby>
 		<obo_dfltref/>
 		<obo_template_id.tpl_name>Base</obo_template_id.tpl_name>
-		<obo_cache>D</obo_cache>
+		<obo_tpl_list_id.tpl_name/>
 		<obo_copy>1</obo_copy>
 		<obo_export>1</obo_export>
 		<obo_pagine>1</obo_pagine>
@@ -575,6 +599,7 @@ There is one system parameters to configure:
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 		<obo_btn_reload>P</obo_btn_reload>
 		<obo_btn_prefs>P</obo_btn_prefs>
+		<obo_btn_bookmark>1</obo_btn_bookmark>
 		<obo_btn_del>P</obo_btn_del>
 		<obo_btn_copy>P</obo_btn_copy>
 		<obo_btn_export>P</obo_btn_export>
@@ -597,9 +622,19 @@ There is one system parameters to configure:
 		<obo_maxrows/>
 		<obo_sortable>1</obo_sortable>
 		<obo_list_areas>1</obo_list_areas>
+		<obo_minifiable>M</obo_minifiable>
+		<obo_minified>0</obo_minified>
+		<obo_permalink/>
+		<obo_btn_searchform>1</obo_btn_searchform>
+		<obo_search_index>0</obo_search_index>
+		<obo_search_column>1</obo_search_column>
+		<obo_search_dialog>1</obo_search_dialog>
+		<obo_search_docked>0</obo_search_docked>
+		<obo_tpl_search_id.tpl_name/>
+		<obo_tpl_search_pos/>
 	</data>
 	<data>
-		<obo_name oldvalue="RemoteLocalOrder">RemoteDemoLocalOrder</obo_name>
+		<obo_name>RemoteDemoLocalOrder</obo_name>
 		<obo_dbtable>remote_demo_local_order</obo_dbtable>
 		<obo_role>OBJ</obo_role>
 		<obo_class/>
@@ -609,14 +644,13 @@ There is one system parameters to configure:
 		<obo_comment/>
 		<obo_type>O</obo_type>
 		<obo_searchspec/>
-		<obo_delspec/>
 		<obo_exportorder>0</obo_exportorder>
 		<obo_distinct>0</obo_distinct>
 		<obo_indexable>0</obo_indexable>
 		<obo_groupby>0</obo_groupby>
 		<obo_dfltref/>
 		<obo_template_id.tpl_name>RemoteLocalOrder</obo_template_id.tpl_name>
-		<obo_cache>D</obo_cache>
+		<obo_tpl_list_id.tpl_name/>
 		<obo_copy>1</obo_copy>
 		<obo_export>1</obo_export>
 		<obo_pagine>1</obo_pagine>
@@ -642,6 +676,7 @@ There is one system parameters to configure:
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 		<obo_btn_reload>P</obo_btn_reload>
 		<obo_btn_prefs>P</obo_btn_prefs>
+		<obo_btn_bookmark>1</obo_btn_bookmark>
 		<obo_btn_del>P</obo_btn_del>
 		<obo_btn_copy>P</obo_btn_copy>
 		<obo_btn_export>P</obo_btn_export>
@@ -664,6 +699,16 @@ There is one system parameters to configure:
 		<obo_maxrows/>
 		<obo_sortable>1</obo_sortable>
 		<obo_list_areas>1</obo_list_areas>
+		<obo_minifiable>M</obo_minifiable>
+		<obo_minified>0</obo_minified>
+		<obo_permalink/>
+		<obo_btn_searchform>1</obo_btn_searchform>
+		<obo_search_index>0</obo_search_index>
+		<obo_search_column>C</obo_search_column>
+		<obo_search_dialog>1</obo_search_dialog>
+		<obo_search_docked>0</obo_search_docked>
+		<obo_tpl_search_id.tpl_name/>
+		<obo_tpl_search_pos/>
 	</data>
 	<data>
 		<obo_name>RemoteDemoProduct</obo_name>
@@ -682,14 +727,13 @@ There is one system parameters to configure:
     "credentials": "REMOTESIMPLICITE_CREDENTIALS",
     "remoteName": "DemoProduct"
 }]]></obo_searchspec>
-		<obo_delspec/>
 		<obo_exportorder>0</obo_exportorder>
 		<obo_distinct>0</obo_distinct>
 		<obo_indexable>0</obo_indexable>
 		<obo_groupby>0</obo_groupby>
 		<obo_dfltref/>
 		<obo_template_id.tpl_name>Base</obo_template_id.tpl_name>
-		<obo_cache>D</obo_cache>
+		<obo_tpl_list_id.tpl_name/>
 		<obo_copy>1</obo_copy>
 		<obo_export>1</obo_export>
 		<obo_pagine>1</obo_pagine>
@@ -715,6 +759,7 @@ There is one system parameters to configure:
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 		<obo_btn_reload>P</obo_btn_reload>
 		<obo_btn_prefs>P</obo_btn_prefs>
+		<obo_btn_bookmark>1</obo_btn_bookmark>
 		<obo_btn_del>P</obo_btn_del>
 		<obo_btn_copy>P</obo_btn_copy>
 		<obo_btn_export>P</obo_btn_export>
@@ -737,6 +782,16 @@ There is one system parameters to configure:
 		<obo_maxrows/>
 		<obo_sortable>1</obo_sortable>
 		<obo_list_areas>1</obo_list_areas>
+		<obo_minifiable>M</obo_minifiable>
+		<obo_minified>0</obo_minified>
+		<obo_permalink/>
+		<obo_btn_searchform>1</obo_btn_searchform>
+		<obo_search_index>0</obo_search_index>
+		<obo_search_column>1</obo_search_column>
+		<obo_search_dialog>1</obo_search_dialog>
+		<obo_search_docked>0</obo_search_docked>
+		<obo_tpl_search_id.tpl_name/>
+		<obo_tpl_search_pos/>
 	</data>
 	<data>
 		<obo_name>RemoteDemoSupplier</obo_name>
@@ -755,14 +810,13 @@ There is one system parameters to configure:
     "credentials": "REMOTESIMPLICITE_CREDENTIALS",
     "remoteName": "DemoSupplier"
 }]]></obo_searchspec>
-		<obo_delspec/>
 		<obo_exportorder>0</obo_exportorder>
 		<obo_distinct>0</obo_distinct>
 		<obo_indexable>0</obo_indexable>
 		<obo_groupby>0</obo_groupby>
 		<obo_dfltref/>
 		<obo_template_id.tpl_name>Base</obo_template_id.tpl_name>
-		<obo_cache>D</obo_cache>
+		<obo_tpl_list_id.tpl_name/>
 		<obo_copy>1</obo_copy>
 		<obo_export>1</obo_export>
 		<obo_pagine>1</obo_pagine>
@@ -788,6 +842,7 @@ There is one system parameters to configure:
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 		<obo_btn_reload>P</obo_btn_reload>
 		<obo_btn_prefs>P</obo_btn_prefs>
+		<obo_btn_bookmark>1</obo_btn_bookmark>
 		<obo_btn_del>P</obo_btn_del>
 		<obo_btn_copy>P</obo_btn_copy>
 		<obo_btn_export>P</obo_btn_export>
@@ -810,6 +865,16 @@ There is one system parameters to configure:
 		<obo_maxrows/>
 		<obo_sortable>1</obo_sortable>
 		<obo_list_areas>1</obo_list_areas>
+		<obo_minifiable>M</obo_minifiable>
+		<obo_minified>0</obo_minified>
+		<obo_permalink/>
+		<obo_btn_searchform>1</obo_btn_searchform>
+		<obo_search_index>0</obo_search_index>
+		<obo_search_column>1</obo_search_column>
+		<obo_search_dialog>1</obo_search_dialog>
+		<obo_search_docked>0</obo_search_docked>
+		<obo_tpl_search_id.tpl_name/>
+		<obo_tpl_search_pos/>
 	</data>
 </object>
 <object>
@@ -818,10 +883,10 @@ There is one system parameters to configure:
 	<data>
 		<obf_object_id.obo_name>RemoteDemoLocalOrder</obf_object_id.obo_name>
 		<obf_field_id.fld_name>remoteRloProduct</obf_field_id.fld_name>
-		<obf_field_id.fld_type>24</obf_field_id.fld_type>
 		<obf_order>100</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
+		<obf_reorder/>
 		<obf_input/>
 		<obf_ref_field_id.fld_name/>
 		<obf_ref_object_id.obo_name/>
@@ -839,18 +904,21 @@ There is one system parameters to configure:
 		<obf_fld_listmore/>
 		<obf_fld_researchreq/>
 		<obf_fld_dfault/>
-		<obf_field_id.fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_uk/>
 		<obf_area_id.ofa_name>RemoteDemoLocalOrder-1</obf_area_id.ofa_name>
-		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
 	</data>
 	<data>
 		<obf_object_id.obo_name>RemoteDemoLocalOrder</obf_object_id.obo_name>
 		<obf_field_id.fld_name>remoteRloProductLabel</obf_field_id.fld_name>
-		<obf_field_id.fld_type>3</obf_field_id.fld_type>
 		<obf_order>110</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order>1</obf_dfault_order>
+		<obf_reorder/>
 		<obf_input/>
 		<obf_ref_field_id.fld_name/>
 		<obf_ref_object_id.obo_name/>
@@ -868,18 +936,21 @@ There is one system parameters to configure:
 		<obf_fld_listmore/>
 		<obf_fld_researchreq/>
 		<obf_fld_dfault/>
-		<obf_field_id.fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_uk/>
 		<obf_area_id.ofa_name>RemoteDemoLocalOrder-1</obf_area_id.ofa_name>
-		<obf_area_id.ofa_position>1</obf_area_id.ofa_position>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
 	</data>
 	<data>
 		<obf_object_id.obo_name>RemoteDemoLocalOrder</obf_object_id.obo_name>
 		<obf_field_id.fld_name>remoteRloClient</obf_field_id.fld_name>
-		<obf_field_id.fld_type>24</obf_field_id.fld_type>
 		<obf_order>200</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
+		<obf_reorder/>
 		<obf_input/>
 		<obf_ref_field_id.fld_name/>
 		<obf_ref_object_id.obo_name/>
@@ -897,18 +968,21 @@ There is one system parameters to configure:
 		<obf_fld_listmore/>
 		<obf_fld_researchreq/>
 		<obf_fld_dfault/>
-		<obf_field_id.fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_uk/>
 		<obf_area_id.ofa_name>RemoteDemoLocalOrder-2</obf_area_id.ofa_name>
-		<obf_area_id.ofa_position>2</obf_area_id.ofa_position>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
 	</data>
 	<data>
 		<obf_object_id.obo_name>RemoteDemoLocalOrder</obf_object_id.obo_name>
 		<obf_field_id.fld_name>remoteRloClientLabel</obf_field_id.fld_name>
-		<obf_field_id.fld_type>3</obf_field_id.fld_type>
 		<obf_order>210</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order>2</obf_dfault_order>
+		<obf_reorder/>
 		<obf_input/>
 		<obf_ref_field_id.fld_name/>
 		<obf_ref_object_id.obo_name/>
@@ -926,18 +1000,21 @@ There is one system parameters to configure:
 		<obf_fld_listmore/>
 		<obf_fld_researchreq/>
 		<obf_fld_dfault/>
-		<obf_field_id.fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_uk/>
 		<obf_area_id.ofa_name>RemoteDemoLocalOrder-2</obf_area_id.ofa_name>
-		<obf_area_id.ofa_position>2</obf_area_id.ofa_position>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
 	</data>
 	<data>
 		<obf_object_id.obo_name>RemoteDemoLocalOrder</obf_object_id.obo_name>
 		<obf_field_id.fld_name>remoteRloDate</obf_field_id.fld_name>
-		<obf_field_id.fld_type>5</obf_field_id.fld_type>
 		<obf_order>300</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order>-3</obf_dfault_order>
+		<obf_reorder/>
 		<obf_input/>
 		<obf_ref_field_id.fld_name/>
 		<obf_ref_object_id.obo_name/>
@@ -955,18 +1032,21 @@ There is one system parameters to configure:
 		<obf_fld_listmore/>
 		<obf_fld_researchreq/>
 		<obf_fld_dfault/>
-		<obf_field_id.fld_dfault><![CDATA[[DATETIME]]]></obf_field_id.fld_dfault>
+		<obf_fld_exportable/>
+		<obf_fld_uk/>
 		<obf_area_id.ofa_name>RemoteDemoLocalOrder-3</obf_area_id.ofa_name>
-		<obf_area_id.ofa_position>3</obf_area_id.ofa_position>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
 	</data>
 	<data>
 		<obf_object_id.obo_name>RemoteDemoLocalOrder</obf_object_id.obo_name>
 		<obf_field_id.fld_name>remoteRloQuantity</obf_field_id.fld_name>
-		<obf_field_id.fld_type>1</obf_field_id.fld_type>
 		<obf_order>310</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
+		<obf_reorder/>
 		<obf_input/>
 		<obf_ref_field_id.fld_name/>
 		<obf_ref_object_id.obo_name/>
@@ -984,18 +1064,21 @@ There is one system parameters to configure:
 		<obf_fld_listmore/>
 		<obf_fld_researchreq/>
 		<obf_fld_dfault/>
-		<obf_field_id.fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_uk/>
 		<obf_area_id.ofa_name>RemoteDemoLocalOrder-3</obf_area_id.ofa_name>
-		<obf_area_id.ofa_position>3</obf_area_id.ofa_position>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
 	</data>
 	<data>
 		<obf_object_id.obo_name>RemoteDemoLocalOrder</obf_object_id.obo_name>
 		<obf_field_id.fld_name>remoteRloTotal</obf_field_id.fld_name>
-		<obf_field_id.fld_type>26</obf_field_id.fld_type>
 		<obf_order>320</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
+		<obf_reorder/>
 		<obf_input/>
 		<obf_ref_field_id.fld_name/>
 		<obf_ref_object_id.obo_name/>
@@ -1013,18 +1096,21 @@ There is one system parameters to configure:
 		<obf_fld_listmore/>
 		<obf_fld_researchreq/>
 		<obf_fld_dfault/>
-		<obf_field_id.fld_dfault><![CDATA[0]]></obf_field_id.fld_dfault>
+		<obf_fld_exportable/>
+		<obf_fld_uk/>
 		<obf_area_id.ofa_name>RemoteDemoLocalOrder-3</obf_area_id.ofa_name>
-		<obf_area_id.ofa_position>3</obf_area_id.ofa_position>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
 	</data>
 	<data>
 		<obf_object_id.obo_name>RemoteDemoLocalOrder</obf_object_id.obo_name>
 		<obf_field_id.fld_name>remoteRloComments</obf_field_id.fld_name>
-		<obf_field_id.fld_type>11</obf_field_id.fld_type>
 		<obf_order>900</obf_order>
 		<obf_group_by/>
 		<obf_dfault_order/>
+		<obf_reorder/>
 		<obf_input/>
 		<obf_ref_field_id.fld_name/>
 		<obf_ref_object_id.obo_name/>
@@ -1042,10 +1128,13 @@ There is one system parameters to configure:
 		<obf_fld_listmore/>
 		<obf_fld_researchreq/>
 		<obf_fld_dfault/>
-		<obf_field_id.fld_dfault/>
+		<obf_fld_exportable/>
+		<obf_fld_uk/>
 		<obf_area_id.ofa_name>RemoteDemoLocalOrder-3</obf_area_id.ofa_name>
-		<obf_area_id.ofa_position>3</obf_area_id.ofa_position>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+		<obf_joined_id.obf_object_id.obo_name/>
+		<obf_joined_id.obf_field_id.fld_name/>
+		<obf_joined_id.obf_order/>
 	</data>
 </object>
 <object>
@@ -1053,17 +1142,7 @@ There is one system parameters to configure:
 	<action>upsert</action>
 	<data>
 		<fct_name>REMOTE_CLI_R</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>RemoteDemoClient</fct_object_id.obj_name>
-		<fct_function>L</fct_function>
-		<fct_action_id.act_name/>
-		<fct_view_id.viw_name/>
-		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<fct_name>REMOTE_DEMO_DOMAIN_D</fct_name>
-		<fct_object_id.obj_type>D</fct_object_id.obj_type>
-		<fct_object_id.obj_name>RemoteDemoDomain</fct_object_id.obj_name>
+		<fct_object_id.obo_name>RemoteDemoClient</fct_object_id.obo_name>
 		<fct_function>L</fct_function>
 		<fct_action_id.act_name/>
 		<fct_view_id.viw_name/>
@@ -1071,8 +1150,7 @@ There is one system parameters to configure:
 	</data>
 	<data>
 		<fct_name>REMOTE_PRD_R</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>RemoteDemoProduct</fct_object_id.obj_name>
+		<fct_object_id.obo_name>RemoteDemoProduct</fct_object_id.obo_name>
 		<fct_function>L</fct_function>
 		<fct_action_id.act_name/>
 		<fct_view_id.viw_name/>
@@ -1080,8 +1158,7 @@ There is one system parameters to configure:
 	</data>
 	<data>
 		<fct_name>REMOTE_RLO_CRUD</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>RemoteDemoLocalOrder</fct_object_id.obj_name>
+		<fct_object_id.obo_name>RemoteDemoLocalOrder</fct_object_id.obo_name>
 		<fct_function>CMS</fct_function>
 		<fct_action_id.act_name/>
 		<fct_view_id.viw_name/>
@@ -1089,8 +1166,7 @@ There is one system parameters to configure:
 	</data>
 	<data>
 		<fct_name>REMOTE_SUP_R</fct_name>
-		<fct_object_id.obj_type>O</fct_object_id.obj_type>
-		<fct_object_id.obj_name>RemoteDemoSupplier</fct_object_id.obj_name>
+		<fct_object_id.obo_name>RemoteDemoSupplier</fct_object_id.obo_name>
 		<fct_function>L</fct_function>
 		<fct_action_id.act_name/>
 		<fct_view_id.viw_name/>
@@ -1103,50 +1179,32 @@ There is one system parameters to configure:
 	<data>
 		<grt_group_id.grp_name>REMOTEDEMO_USER</grt_group_id.grp_name>
 		<grt_function_id.fct_name>REMOTE_CLI_R</grt_function_id.fct_name>
-		<grt_function_id.fct_object_id.obj_type>O</grt_function_id.fct_object_id.obj_type>
-		<grt_function_id.fct_object_id.obj_name>RemoteDemoClient</grt_function_id.fct_object_id.obj_name>
+		<grt_function_id.fct_object_id.obo_name>RemoteDemoClient</grt_function_id.fct_object_id.obo_name>
 		<grt_function_id.fct_action_id.act_name/>
-		<grt_function_id.fct_function>L</grt_function_id.fct_function>
-		<grt_activ>1</grt_activ>
-		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<grt_group_id.grp_name>REMOTEDEMO_USER</grt_group_id.grp_name>
-		<grt_function_id.fct_name>REMOTE_DEMO_DOMAIN_D</grt_function_id.fct_name>
-		<grt_function_id.fct_object_id.obj_type>D</grt_function_id.fct_object_id.obj_type>
-		<grt_function_id.fct_object_id.obj_name>RemoteDemoDomain</grt_function_id.fct_object_id.obj_name>
-		<grt_function_id.fct_action_id.act_name/>
-		<grt_function_id.fct_function>L</grt_function_id.fct_function>
 		<grt_activ>1</grt_activ>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
 		<grt_group_id.grp_name>REMOTEDEMO_USER</grt_group_id.grp_name>
 		<grt_function_id.fct_name>REMOTE_RLO_CRUD</grt_function_id.fct_name>
-		<grt_function_id.fct_object_id.obj_type>O</grt_function_id.fct_object_id.obj_type>
-		<grt_function_id.fct_object_id.obj_name>RemoteDemoLocalOrder</grt_function_id.fct_object_id.obj_name>
+		<grt_function_id.fct_object_id.obo_name>RemoteDemoLocalOrder</grt_function_id.fct_object_id.obo_name>
 		<grt_function_id.fct_action_id.act_name/>
-		<grt_function_id.fct_function>CMS</grt_function_id.fct_function>
 		<grt_activ>1</grt_activ>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
 		<grt_group_id.grp_name>REMOTEDEMO_USER</grt_group_id.grp_name>
 		<grt_function_id.fct_name>REMOTE_PRD_R</grt_function_id.fct_name>
-		<grt_function_id.fct_object_id.obj_type>O</grt_function_id.fct_object_id.obj_type>
-		<grt_function_id.fct_object_id.obj_name>RemoteDemoProduct</grt_function_id.fct_object_id.obj_name>
+		<grt_function_id.fct_object_id.obo_name>RemoteDemoProduct</grt_function_id.fct_object_id.obo_name>
 		<grt_function_id.fct_action_id.act_name/>
-		<grt_function_id.fct_function>L</grt_function_id.fct_function>
 		<grt_activ>1</grt_activ>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
 		<grt_group_id.grp_name>REMOTEDEMO_USER</grt_group_id.grp_name>
 		<grt_function_id.fct_name>REMOTE_SUP_R</grt_function_id.fct_name>
-		<grt_function_id.fct_object_id.obj_type>O</grt_function_id.fct_object_id.obj_type>
-		<grt_function_id.fct_object_id.obj_name>RemoteDemoSupplier</grt_function_id.fct_object_id.obj_name>
+		<grt_function_id.fct_object_id.obo_name>RemoteDemoSupplier</grt_function_id.fct_object_id.obo_name>
 		<grt_function_id.fct_action_id.act_name/>
-		<grt_function_id.fct_function>L</grt_function_id.fct_function>
 		<grt_activ>1</grt_activ>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
@@ -1156,32 +1214,56 @@ There is one system parameters to configure:
 	<action>upsert</action>
 	<data>
 		<map_domain_id.obd_name>RemoteDemoDomain</map_domain_id.obd_name>
-		<map_object_id.obj_name>RemoteDemoSupplier</map_object_id.obj_name>
-		<map_process_id.pcs_name/>
+		<map_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>RemoteDemoSupplier</obo_name>
+				</data>
+			</object>
+		</map_object>
 		<map_order>71010</map_order>
 		<map_ext>0</map_ext>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
 		<map_domain_id.obd_name>RemoteDemoDomain</map_domain_id.obd_name>
-		<map_object_id.obj_name>RemoteDemoProduct</map_object_id.obj_name>
-		<map_process_id.pcs_name/>
+		<map_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>RemoteDemoProduct</obo_name>
+				</data>
+			</object>
+		</map_object>
 		<map_order>71020</map_order>
 		<map_ext>0</map_ext>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
 		<map_domain_id.obd_name>RemoteDemoDomain</map_domain_id.obd_name>
-		<map_object_id.obj_name>RemoteDemoClient</map_object_id.obj_name>
-		<map_process_id.pcs_name/>
+		<map_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>RemoteDemoClient</obo_name>
+				</data>
+			</object>
+		</map_object>
 		<map_order>71030</map_order>
 		<map_ext>0</map_ext>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
 		<map_domain_id.obd_name>RemoteDemoDomain</map_domain_id.obd_name>
-		<map_object_id.obj_name>RemoteDemoLocalOrder</map_object_id.obj_name>
-		<map_process_id.pcs_name/>
+		<map_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>RemoteDemoLocalOrder</obo_name>
+				</data>
+			</object>
+		</map_object>
 		<map_order>71040</map_order>
 		<map_ext>0</map_ext>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
@@ -1203,6 +1285,7 @@ There is one system parameters to configure:
 		<vwi_show/>
 		<vwi_url/>
 		<vwi_image/>
+		<vwi_subview_id.viw_name/>
 		<vwi_treeview_id.trv_name/>
 		<vwi_crosstab_id.ctb_name/>
 		<vwi_printtmpl_id.prt_name/>
@@ -1222,6 +1305,7 @@ There is one system parameters to configure:
 		<vwi_show/>
 		<vwi_url/>
 		<vwi_image/>
+		<vwi_subview_id.viw_name/>
 		<vwi_treeview_id.trv_name/>
 		<vwi_crosstab_id.ctb_name/>
 		<vwi_printtmpl_id.prt_name/>
@@ -1235,7 +1319,6 @@ There is one system parameters to configure:
 	<data>
 		<vig_view_id.viw_name>RemoteDemoHome</vig_view_id.viw_name>
 		<vig_group_id.grp_name>REMOTEDEMO_USER</vig_group_id.grp_name>
-		<vig_group_id.grp_comment/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 </object>
@@ -1289,241 +1372,395 @@ There is one system parameters to configure:
 	<name>TranslateField</name>
 	<action>upsert</action>
 	<data>
-		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>remoteRloClient</tsl_id.fld_name>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>remoteRloClient</fld_name>
+				</data>
+			</object>
+		</tsl_object>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>Customer</tsl_value>
 		<tsl_simplehelp/>
+		<tsl_plural_value/>
 		<tsl_short_value/>
 		<tsl_placeholder/>
 		<tsl_listhelp/>
-		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 		<tsl_tooltip/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
-		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>remoteRloClientLabel</tsl_id.fld_name>
-		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Customer label</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
-		<tsl_tooltip/>
-	</data>
-	<data>
-		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>remoteRloComments</tsl_id.fld_name>
-		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Comments</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
-		<tsl_tooltip/>
-	</data>
-	<data>
-		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>remoteRloDate</tsl_id.fld_name>
-		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Date</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
-		<tsl_tooltip/>
-	</data>
-	<data>
-		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>remoteRloProduct</tsl_id.fld_name>
-		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Product</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
-		<tsl_tooltip/>
-	</data>
-	<data>
-		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>remoteRloProductLabel</tsl_id.fld_name>
-		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Product label</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
-		<tsl_tooltip/>
-	</data>
-	<data>
-		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>remoteRloQuantity</tsl_id.fld_name>
-		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Quantity</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
-		<tsl_tooltip/>
-	</data>
-	<data>
-		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>remoteRloTotal</tsl_id.fld_name>
-		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Total</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
-		<tsl_tooltip/>
-	</data>
-	<data>
-		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>remoteRloClient</tsl_id.fld_name>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>remoteRloClient</fld_name>
+				</data>
+			</object>
+		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>Client</tsl_value>
 		<tsl_simplehelp/>
+		<tsl_plural_value/>
 		<tsl_short_value/>
 		<tsl_placeholder/>
 		<tsl_listhelp/>
-		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 		<tsl_tooltip/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
-		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>remoteRloClientLabel</tsl_id.fld_name>
-		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Libellé client</tsl_value>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>remoteRloDate</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Date</tsl_value>
 		<tsl_simplehelp/>
+		<tsl_plural_value/>
 		<tsl_short_value/>
 		<tsl_placeholder/>
 		<tsl_listhelp/>
-		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 		<tsl_tooltip/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
-		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>remoteRloComments</tsl_id.fld_name>
-		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Remote rlo comments</tsl_value>
-		<tsl_simplehelp/>
-		<tsl_short_value/>
-		<tsl_placeholder/>
-		<tsl_listhelp/>
-		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
-		<tsl_tooltip/>
-	</data>
-	<data>
-		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>remoteRloDate</tsl_id.fld_name>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>remoteRloDate</fld_name>
+				</data>
+			</object>
+		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>Date</tsl_value>
 		<tsl_simplehelp/>
+		<tsl_plural_value/>
 		<tsl_short_value/>
 		<tsl_placeholder/>
 		<tsl_listhelp/>
-		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 		<tsl_tooltip/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
-		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>remoteRloProduct</tsl_id.fld_name>
-		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Produit</tsl_value>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>remoteRloComments</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Comments</tsl_value>
 		<tsl_simplehelp/>
+		<tsl_plural_value/>
 		<tsl_short_value/>
 		<tsl_placeholder/>
 		<tsl_listhelp/>
-		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 		<tsl_tooltip/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
-		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>remoteRloProductLabel</tsl_id.fld_name>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>remoteRloComments</fld_name>
+				</data>
+			</object>
+		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Libellé produit</tsl_value>
+		<tsl_value>Remote rlo comments</tsl_value>
 		<tsl_simplehelp/>
+		<tsl_plural_value/>
 		<tsl_short_value/>
 		<tsl_placeholder/>
 		<tsl_listhelp/>
-		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 		<tsl_tooltip/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
-		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>remoteRloQuantity</tsl_id.fld_name>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>remoteRloQuantity</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Quantity</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>remoteRloQuantity</fld_name>
+				</data>
+			</object>
+		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>Quantité</tsl_value>
 		<tsl_simplehelp/>
+		<tsl_plural_value/>
 		<tsl_short_value/>
 		<tsl_placeholder/>
 		<tsl_listhelp/>
-		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 		<tsl_tooltip/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
-		<tsl_typeField>F</tsl_typeField>
-		<tsl_id.fld_name>remoteRloTotal</tsl_id.fld_name>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>remoteRloTotal</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Total</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>remoteRloTotal</fld_name>
+				</data>
+			</object>
+		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>Total</tsl_value>
 		<tsl_simplehelp/>
+		<tsl_plural_value/>
 		<tsl_short_value/>
 		<tsl_placeholder/>
 		<tsl_listhelp/>
-		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 		<tsl_tooltip/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>remoteRloProduct</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Product</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>remoteRloProduct</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Produit</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>remoteRloClientLabel</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Customer label</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>remoteRloClientLabel</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Libellé client</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>remoteRloProductLabel</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Product label</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>Field</name>
+				<data>
+					<fld_name>remoteRloProductLabel</fld_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Libellé produit</tsl_value>
+		<tsl_simplehelp/>
+		<tsl_plural_value/>
+		<tsl_short_value/>
+		<tsl_placeholder/>
+		<tsl_listhelp/>
+		<tsl_tooltip/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 </object>
 <object>
 	<name>TranslateFieldArea</name>
 	<action>upsert</action>
 	<data>
-		<tsl_typeFieldArea>Z</tsl_typeFieldArea>
-		<tsl_id.ofa_name>RemoteDemoLocalOrder-1</tsl_id.ofa_name>
+		<tsl_object>
+			<object>
+				<name>ObjectFieldArea</name>
+				<data>
+					<ofa_name>RemoteDemoLocalOrder-1</ofa_name>
+				</data>
+			</object>
+		</tsl_object>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>Product</tsl_value>
+		<tsl_plural_value/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
-		<tsl_typeFieldArea>Z</tsl_typeFieldArea>
-		<tsl_id.ofa_name>RemoteDemoLocalOrder-2</tsl_id.ofa_name>
-		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Customer</tsl_value>
-		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_typeFieldArea>Z</tsl_typeFieldArea>
-		<tsl_id.ofa_name>RemoteDemoLocalOrder-3</tsl_id.ofa_name>
-		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Order</tsl_value>
-		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_typeFieldArea>Z</tsl_typeFieldArea>
-		<tsl_id.ofa_name>RemoteDemoLocalOrder-1</tsl_id.ofa_name>
+		<tsl_object>
+			<object>
+				<name>ObjectFieldArea</name>
+				<data>
+					<ofa_name>RemoteDemoLocalOrder-1</ofa_name>
+				</data>
+			</object>
+		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>Produit</tsl_value>
+		<tsl_plural_value/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
-		<tsl_typeFieldArea>Z</tsl_typeFieldArea>
-		<tsl_id.ofa_name>RemoteDemoLocalOrder-2</tsl_id.ofa_name>
+		<tsl_object>
+			<object>
+				<name>ObjectFieldArea</name>
+				<data>
+					<ofa_name>RemoteDemoLocalOrder-2</ofa_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Customer</tsl_value>
+		<tsl_plural_value/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>ObjectFieldArea</name>
+				<data>
+					<ofa_name>RemoteDemoLocalOrder-2</ofa_name>
+				</data>
+			</object>
+		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>Client</tsl_value>
+		<tsl_plural_value/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
-		<tsl_typeFieldArea>Z</tsl_typeFieldArea>
-		<tsl_id.ofa_name>RemoteDemoLocalOrder-3</tsl_id.ofa_name>
+		<tsl_object>
+			<object>
+				<name>ObjectFieldArea</name>
+				<data>
+					<ofa_name>RemoteDemoLocalOrder-3</ofa_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>ENU</tsl_lang>
+		<tsl_value>Order</tsl_value>
+		<tsl_plural_value/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>ObjectFieldArea</name>
+				<data>
+					<ofa_name>RemoteDemoLocalOrder-3</ofa_name>
+				</data>
+			</object>
+		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>Commande</tsl_value>
+		<tsl_plural_value/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 </object>
@@ -1531,19 +1768,33 @@ There is one system parameters to configure:
 	<name>TranslateDomain</name>
 	<action>upsert</action>
 	<data>
-		<tsl_typeObject>O</tsl_typeObject>
-		<tsl_id.obd_name>RemoteDemoDomain</tsl_id.obd_name>
+		<tsl_object>
+			<object>
+				<name>Domain</name>
+				<data>
+					<obd_name>RemoteDemoDomain</obd_name>
+				</data>
+			</object>
+		</tsl_object>
 		<tsl_lang>ENU</tsl_lang>
 		<tsl_value>Remote demo</tsl_value>
 		<tsl_help/>
+		<tsl_plural_value/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
-		<tsl_typeObject>O</tsl_typeObject>
-		<tsl_id.obd_name>RemoteDemoDomain</tsl_id.obd_name>
+		<tsl_object>
+			<object>
+				<name>Domain</name>
+				<data>
+					<obd_name>RemoteDemoDomain</obd_name>
+				</data>
+			</object>
+		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
 		<tsl_value>Démo distante</tsl_value>
 		<tsl_help/>
+		<tsl_plural_value/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 </object>
@@ -1551,66 +1802,122 @@ There is one system parameters to configure:
 	<name>TranslateObject</name>
 	<action>upsert</action>
 	<data>
-		<tsl_typeObject>O</tsl_typeObject>
-		<tsl_id.obo_name>RemoteDemoClient</tsl_id.obo_name>
+		<tsl_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>RemoteDemoClient</obo_name>
+				</data>
+			</object>
+		</tsl_object>
 		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Remote customer|Remote customers</tsl_value>
+		<tsl_value>Remote customer</tsl_value>
+		<tsl_plural_value>Remote customers</tsl_plural_value>
 		<tsl_help/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
-		<tsl_typeObject>O</tsl_typeObject>
-		<tsl_id.obo_name>RemoteDemoLocalOrder</tsl_id.obo_name>
+		<tsl_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>RemoteDemoClient</obo_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Client distant</tsl_value>
+		<tsl_plural_value>Clients distants</tsl_plural_value>
+		<tsl_help/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>RemoteDemoProduct</obo_name>
+				</data>
+			</object>
+		</tsl_object>
 		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Local order|Local orders</tsl_value>
+		<tsl_value>Remote product</tsl_value>
+		<tsl_plural_value>Remote products</tsl_plural_value>
 		<tsl_help/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
-		<tsl_typeObject>O</tsl_typeObject>
-		<tsl_id.obo_name>RemoteDemoProduct</tsl_id.obo_name>
+		<tsl_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>RemoteDemoProduct</obo_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Produit distant</tsl_value>
+		<tsl_plural_value>Produits distants</tsl_plural_value>
+		<tsl_help/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>RemoteDemoSupplier</obo_name>
+				</data>
+			</object>
+		</tsl_object>
 		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Remote product|Remote products</tsl_value>
+		<tsl_value>Remote supplier</tsl_value>
+		<tsl_plural_value>Remote suppliers</tsl_plural_value>
 		<tsl_help/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
-		<tsl_typeObject>O</tsl_typeObject>
-		<tsl_id.obo_name>RemoteDemoSupplier</tsl_id.obo_name>
+		<tsl_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>RemoteDemoSupplier</obo_name>
+				</data>
+			</object>
+		</tsl_object>
+		<tsl_lang>FRA</tsl_lang>
+		<tsl_value>Fournisseur distant</tsl_value>
+		<tsl_plural_value>Fournisseurs distants</tsl_plural_value>
+		<tsl_help/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+	<data>
+		<tsl_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>RemoteDemoLocalOrder</obo_name>
+				</data>
+			</object>
+		</tsl_object>
 		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Remote supplier|Remote suppliers</tsl_value>
+		<tsl_value>Local order</tsl_value>
+		<tsl_plural_value>Local orders</tsl_plural_value>
 		<tsl_help/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
-		<tsl_typeObject>O</tsl_typeObject>
-		<tsl_id.obo_name>RemoteDemoClient</tsl_id.obo_name>
+		<tsl_object>
+			<object>
+				<name>ObjectInternal</name>
+				<data>
+					<obo_name>RemoteDemoLocalOrder</obo_name>
+				</data>
+			</object>
+		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Client distant|Clients distants</tsl_value>
-		<tsl_help/>
-		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_typeObject>O</tsl_typeObject>
-		<tsl_id.obo_name>RemoteDemoLocalOrder</tsl_id.obo_name>
-		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Commande locale|Commandes locales</tsl_value>
-		<tsl_help/>
-		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_typeObject>O</tsl_typeObject>
-		<tsl_id.obo_name>RemoteDemoProduct</tsl_id.obo_name>
-		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Produit distant|Produits distants</tsl_value>
-		<tsl_help/>
-		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
-	</data>
-	<data>
-		<tsl_typeObject>O</tsl_typeObject>
-		<tsl_id.obo_name>RemoteDemoSupplier</tsl_id.obo_name>
-		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Fournisseur distant|Fournisseurs distants</tsl_value>
+		<tsl_value>Commande locale</tsl_value>
+		<tsl_plural_value>Commandes locales</tsl_plural_value>
 		<tsl_help/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
@@ -1619,19 +1926,54 @@ There is one system parameters to configure:
 	<name>TranslateView</name>
 	<action>upsert</action>
 	<data>
-		<tsl_typeView>V</tsl_typeView>
-		<tsl_id.viw_name>RemoteDemoHome</tsl_id.viw_name>
+		<tsl_object>
+			<object>
+				<name>View</name>
+				<data>
+					<viw_name>RemoteDemoHome</viw_name>
+				</data>
+			</object>
+		</tsl_object>
 		<tsl_lang>ENU</tsl_lang>
-		<tsl_value>Remote Simplicité®</tsl_value>
+		<tsl_value>Remote demo</tsl_value>
 		<tsl_help/>
+		<tsl_plural_value/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 	<data>
-		<tsl_typeView>V</tsl_typeView>
-		<tsl_id.viw_name>RemoteDemoHome</tsl_id.viw_name>
+		<tsl_object>
+			<object>
+				<name>View</name>
+				<data>
+					<viw_name>RemoteDemoHome</viw_name>
+				</data>
+			</object>
+		</tsl_object>
 		<tsl_lang>FRA</tsl_lang>
-		<tsl_value>Simplicité® distant</tsl_value>
+		<tsl_value>Démo distante</tsl_value>
 		<tsl_help/>
+		<tsl_plural_value/>
+		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
+	</data>
+</object>
+<object>
+	<name>Permission</name>
+	<action>upsert</action>
+	<data>
+		<prm_group_id.grp_name>REMOTEDEMO_USER</prm_group_id.grp_name>
+		<prm_object>
+			<object>
+				<name>Domain</name>
+				<data>
+					<obd_name>RemoteDemoDomain</obd_name>
+				</data>
+			</object>
+		</prm_object>
+		<prm_perm>1</prm_perm>
+		<prm_upd>0</prm_upd>
+		<prm_req>0</prm_req>
+		<prm_prop/>
+		<prm_value/>
 		<row_module_id.mdl_name>RemoteDemo</row_module_id.mdl_name>
 	</data>
 </object>

@@ -2,7 +2,7 @@
 # / __(_)_ __  _ __| (_)__(_) |_ /_/
 # \__ \ | '  \| '_ \ | / _| |  _/ -_)
 # |___/_|_|_|_| .__/_|_\__|_|\__\___|
-#             |_| Module: RemoteDemo 5
+#             |_| Module: RemoteDemo 6
 basePath: /api
 paths:
   /rest/RemoteDemoLocalOrder/{row_id}:
@@ -456,6 +456,7 @@ paths:
         enum:
         - FR
         - UK
+        - IT
         - SP
       - in: query
         name: demoCliCoords
@@ -504,6 +505,11 @@ paths:
       - in: query
         name: demoCliPlacemapLabel
         description: Search filter for Customer place map label
+        type: string
+        required: false
+      - in: query
+        name: row_permalink
+        description: Search filter for Record permanent link relative path
         type: string
         required: false
       tags:
@@ -600,6 +606,11 @@ paths:
       - in: query
         name: demoSupComments
         description: Search filter for Comments on supplier
+        type: string
+        required: false
+      - in: query
+        name: row_permalink
+        description: Search filter for Record permanent link relative path
         type: string
         required: false
       tags:
@@ -845,11 +856,6 @@ paths:
         description: Search filter for Comments
         type: string
         required: false
-      - in: query
-        name: row_metaobject_id
-        description: Search filter for remote_rlo_client
-        type: string
-        required: false
       tags:
       - RemoteDemoLocalOrder
   /rest/RemoteDemoProduct:
@@ -943,6 +949,16 @@ paths:
         type: string
         required: false
       - in: query
+        name: demoPrdEan13
+        description: Search filter for EAN13 code
+        type: string
+        required: false
+      - in: query
+        name: demoPrdEan13Image
+        description: Search filter for EAN13 code image
+        type: string
+        required: false
+      - in: query
         name: demoPrdStock
         description: Search filter for Current stock for product
         type: integer
@@ -955,6 +971,11 @@ paths:
       - in: query
         name: demoPrdAvailable
         description: Search filter for Available product?
+        type: boolean
+        required: false
+      - in: query
+        name: demoPrdFeatured
+        description: Search filter for Featured product?
         type: boolean
         required: false
       - in: query
@@ -975,6 +996,11 @@ paths:
       - in: query
         name: demoPrdComments
         description: Search filter for Comments on product
+        type: string
+        required: false
+      - in: query
+        name: row_permalink
+        description: Search filter for Record permanent link relative path
         type: string
         required: false
       tags:
@@ -1173,6 +1199,7 @@ securityDefinitions:
     type: apiKey
 definitions:
   Error404:
+    description: Not found
     type: object
     properties:
       error:
@@ -1184,41 +1211,65 @@ definitions:
         enum:
         - 404
   RemoteDemoProduct:
+    description: |-
+      Remote product:
+
+      Simplicité remote _product_ object from the Demo application.
+
+      **Note**: the fields are retreived from the Simplicité metadata
     type: object
     properties:
       demoPrdType:
         description: Product type
         type: string
+        maxLength: 50
         enum:
         - LAPTOP
         - DESKTOP
         - TABLET
         - SMARTPHONE
         - OTHER
+      row_permalink:
+        description: Record permanent link relative path
+        type: string
+        maxLength: 500
       demoPrdSupId__demoSupCode:
         description: Supplier unique code (e.g. `MYSUP`)
         type: string
+        maxLength: 50
       demoPrdAvailable:
         description: Available product?
         type: boolean
       demoPrdDocumentation:
         description: Product documentation
         type: string
+        maxLength: 1000000
+      demoPrdEan13:
+        description: EAN13 code
+        type: string
+        maxLength: 13
       demoPrdOnlineDoc:
         description: Online product documentation URL
         type: string
+        maxLength: 255
+      demoPrdEan13Image:
+        description: EAN13 code image
+        type: object
       demoPrdSupId:
         description: Product supplier
         type: string
+        maxLength: 11
       demoPrdUnitPrice:
         description: Unit price of product
         type: number
       demoPrdSupId__demoSupUsrId:
         description: User responsible of supplier
         type: string
+        maxLength: 11
       demoPrdReference:
         description: Product reference
         type: string
+        maxLength: 10
       demoPrdPicture:
         description: Product picture
         type: object
@@ -1228,60 +1279,74 @@ definitions:
       demoPrdComments:
         description: Comments on product
         type: string
+        maxLength: 2147483647
       demoPrdDescription:
         description: Product description
         type: string
+        maxLength: 1000000
       demoPrdStock:
         description: Current stock for product
         type: integer
+      demoPrdFeatured:
+        description: Featured product?
+        type: boolean
       row_id:
         description: Unique technical row ID
         type: string
+        maxLength: 11
       demoPrdName:
         description: Product name
         type: string
+        maxLength: 100
       demoPrdSupId__demoSupName:
         description: Supplier name
         type: string
+        maxLength: 100
   ArrayOfRemoteDemoProduct:
+    description: List of Remote products
     type: array
     items:
       $ref: '#/definitions/RemoteDemoProduct'
   RemoteDemoLocalOrder:
+    description: Local order
     type: object
     properties:
       remoteRloClientLabel:
         description: Customer label
         type: string
+        maxLength: 100
       remoteRloQuantity:
         description: Quantity
         type: integer
       remoteRloProductLabel:
         description: Product label
         type: string
+        maxLength: 100
       remoteRloDate:
         description: Date
         type: string
+        maxLength: 19
         example: yyyy-MM-dd HH:mm:ss
-      row_metaobject_id:
-        description: remote_rlo_client
-        type: string
       remoteRloProduct:
         description: Product
         type: object
       remoteRloComments:
         description: Comments
         type: string
+        maxLength: 1000000
       row_id:
         description: Unique technical row ID
         type: string
+        maxLength: 11
       remoteRloClient:
         description: Customer
         type: object
       remoteRloTotal:
         description: Total
         type: string
+        maxLength: 10
   PublicationResult:
+    description: Publication result
     type: object
     properties:
       mime:
@@ -1291,6 +1356,7 @@ definitions:
         description: Content (plain text or base64 encoded)
         type: string
   PlaceData:
+    description: Place data
     type: object
     properties:
       coord:
@@ -1312,6 +1378,7 @@ definitions:
         description: 'Label #3'
         type: string
   PlaceMapData:
+    description: Places map data
     type: object
     properties:
       places:
@@ -1323,54 +1390,77 @@ definitions:
         description: Name
         type: string
   ArrayOfRemoteDemoSupplier:
+    description: List of Remote suppliers
     type: array
     items:
       $ref: '#/definitions/RemoteDemoSupplier'
   ActionResult:
+    description: Action result
     type: object
     properties:
       result:
         description: Action result
         type: string
   RemoteDemoSupplier:
+    description: |-
+      Remote supplier:
+
+      Simplicité remote _supplier_ object from the Demo application.
+
+      **Note**: the fields are retreived from the Simplicité metadata
     type: object
     properties:
-      demoSupDescription:
-        description: Supplier description
-        type: string
       demoSupPhone:
         description: Supplier phone number
         type: string
-      demoSupCode:
-        description: Supplier unique code (e.g. `MYSUP`)
+        maxLength: 20
+      row_permalink:
+        description: Record permanent link relative path
         type: string
+        maxLength: 500
       demoSupName:
         description: Supplier name
         type: string
-      demoSupFax:
-        description: Supplier fax number
-        type: string
-      demoSupEmail:
-        description: Supplier email address
-        type: string
-      demoSupLogo:
-        description: Supplier logo
-        type: object
+        maxLength: 100
       demoSupUsrId:
         description: User responsible of supplier
         type: string
+        maxLength: 11
+      demoSupDescription:
+        description: Supplier description
+        type: string
+        maxLength: 1000000
+      demoSupCode:
+        description: Supplier unique code (e.g. `MYSUP`)
+        type: string
+        maxLength: 50
+      demoSupFax:
+        description: Supplier fax number
+        type: string
+        maxLength: 20
+      demoSupEmail:
+        description: Supplier email address
+        type: string
+        maxLength: 20
+      demoSupLogo:
+        description: Supplier logo
+        type: object
       row_id:
         description: Unique technical row ID
         type: string
+        maxLength: 11
       demoSupWebsite:
         description: Supplier website URL
         type: string
+        maxLength: 100
       demoSupUsrId__usr_login:
         description: Login
         type: string
+        maxLength: 100
       demoSupComments:
         description: Comments on supplier
         type: string
+        maxLength: 2147483647
   TreeviewData:
     type: object
     properties:
@@ -1378,21 +1468,35 @@ definitions:
         description: Object item with lists of linked objects' items
         type: object
   RemoteDemoClient:
+    description: |-
+      Remote customer:
+
+      Simplicité remote _customer_ object from the Demo application.
+
+      **Note**: the fields are retreived from the Simplicité metadata
     type: object
     properties:
       demoCliCity:
         description: Customer city
         type: string
+        maxLength: 50
+      row_permalink:
+        description: Record permanent link relative path
+        type: string
+        maxLength: 500
       demoCliCode:
         description: Customer code
         type: string
+        maxLength: 10
       demoCliCoords:
         description: Customer geoccordinates
         type: string
+        maxLength: 50
         example: latitude;longitude
       demoCliType:
         description: Customer type
         type: string
+        maxLength: 30
         enum:
         - T1
         - T2
@@ -1400,58 +1504,76 @@ definitions:
       demoCliLastname:
         description: Customer last name
         type: string
+        maxLength: 100
       demoCliHomePhone:
         description: Customer home phone number
         type: string
+        maxLength: 20
       demoCliZipCode:
         description: Customer postal code
         type: string
+        maxLength: 10
       demoCliFirstname:
         description: Customer first name
         type: string
+        maxLength: 100
       demoCliComments:
         description: Useful comments on customer
         type: string
+        maxLength: 1000000
       demoCliEmail:
         description: Customer email address
         type: string
+        maxLength: 50
       demoCliPlacemapLabel:
         description: Customer place map label
         type: string
+        maxLength: 100
       demoCliFax:
         description: Customer fax number
         type: string
+        maxLength: 20
       row_id:
         description: Unique technical row ID
         type: string
+        maxLength: 11
       demoCliWorkPhone:
         description: Customer work phone number
         type: string
+        maxLength: 20
       demoCliCountry:
         description: Customer country
         type: string
+        maxLength: 30
         enum:
         - FR
         - UK
+        - IT
         - SP
       demoCliAddress1:
         description: Customer address (line 1)
         type: string
+        maxLength: 100
       demoCliMobilePhone:
         description: Customer mobile phone number
         type: string
+        maxLength: 20
       demoCliAddress2:
         description: Customer address (line 2)
         type: string
+        maxLength: 100
   ArrayOfRemoteDemoClient:
+    description: List of Remote customers
     type: array
     items:
       $ref: '#/definitions/RemoteDemoClient'
   ArrayOfRemoteDemoLocalOrder:
+    description: List of Local orders
     type: array
     items:
       $ref: '#/definitions/RemoteDemoLocalOrder'
   Error400:
+    description: Bad request
     type: object
     properties:
       error:
@@ -1463,6 +1585,7 @@ definitions:
         enum:
         - 400
   Error401:
+    description: Unauthorized
     type: object
     properties:
       error:
@@ -1474,6 +1597,7 @@ definitions:
         enum:
         - 401
   Error500:
+    description: Internal server error
     type: object
     properties:
       error:
@@ -1485,6 +1609,7 @@ definitions:
         enum:
         - 500
   Error403:
+    description: Forbidden
     type: object
     properties:
       error:
@@ -1506,7 +1631,7 @@ info:
     email: contact@simplicitesoftware.com
   description: API for module RemoteDemo
   title: RemoteDemo
-  version: '5'
+  version: '6'
 tags:
 - name: RemoteDemoClient
   description: Remote customer
